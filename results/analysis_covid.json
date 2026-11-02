@@ -1,0 +1,745 @@
+{
+ "NYT news": {
+  "by_year": [
+   {
+    "year": 2015,
+    "n": 53732,
+    "scary": 0.0674,
+    "alarm": 0.0146,
+    "fear": 0.2944
+   },
+   {
+    "year": 2016,
+    "n": 45991,
+    "scary": 0.0655,
+    "alarm": 0.0143,
+    "fear": 0.2904
+   },
+   {
+    "year": 2017,
+    "n": 39265,
+    "scary": 0.0676,
+    "alarm": 0.015,
+    "fear": 0.3061
+   },
+   {
+    "year": 2018,
+    "n": 37699,
+    "scary": 0.0689,
+    "alarm": 0.0166,
+    "fear": 0.317
+   },
+   {
+    "year": 2019,
+    "n": 36515,
+    "scary": 0.0768,
+    "alarm": 0.0167,
+    "fear": 0.3447
+   },
+   {
+    "year": 2020,
+    "n": 38758,
+    "scary": 0.0837,
+    "alarm": 0.0136,
+    "fear": 0.3917
+   },
+   {
+    "year": 2021,
+    "n": 36271,
+    "scary": 0.0906,
+    "alarm": 0.0158,
+    "fear": 0.3962
+   },
+   {
+    "year": 2022,
+    "n": 33646,
+    "scary": 0.0952,
+    "alarm": 0.0172,
+    "fear": 0.4085
+   },
+   {
+    "year": 2023,
+    "n": 30933,
+    "scary": 0.1024,
+    "alarm": 0.023,
+    "fear": 0.4227
+   },
+   {
+    "year": 2024,
+    "n": 34751,
+    "scary": 0.1007,
+    "alarm": 0.0212,
+    "fear": 0.4107
+   },
+   {
+    "year": 2025,
+    "n": 35505,
+    "scary": 0.0988,
+    "alarm": 0.0213,
+    "fear": 0.4221
+   },
+   {
+    "year": 2026,
+    "n": 25776,
+    "scary": 0.1034,
+    "alarm": 0.0212,
+    "fear": 0.4375
+   }
+  ],
+  "by_period": [
+   {
+    "period": "pre-COVID 2017-19",
+    "n": 113479,
+    "scary": 0.071,
+    "alarm": 0.0161,
+    "fear": 0.3222
+   },
+   {
+    "period": "COVID 2020-21",
+    "n": 75029,
+    "scary": 0.087,
+    "alarm": 0.0147,
+    "fear": 0.3939
+   },
+   {
+    "period": "after 2022-23",
+    "n": 64579,
+    "scary": 0.0987,
+    "alarm": 0.02,
+    "fear": 0.4153
+   },
+   {
+    "period": "recent 2024-26",
+    "n": 96032,
+    "scary": 0.1007,
+    "alarm": 0.0212,
+    "fear": 0.4221
+   }
+  ],
+  "diff_recent_vs_pre": {
+   "scary": {
+    "diff": 0.0297,
+    "ci95": [
+     0.0265,
+     0.0329
+    ]
+   },
+   "alarm": {
+    "diff": 0.0051,
+    "ci95": [
+     0.0039,
+     0.0063
+    ]
+   }
+  },
+  "diff_covid_vs_pre": {
+   "scary": {
+    "diff": 0.016,
+    "ci95": [
+     0.0129,
+     0.0191
+    ]
+   },
+   "alarm": {
+    "diff": -0.0014,
+    "ci95": [
+     -0.0026,
+     -0.0002
+    ]
+   }
+  },
+  "shift_share_model": {
+   "total": 0.0297,
+   "agenda": 0.0273,
+   "framing": 0.0013,
+   "interaction": 0.0011,
+   "by_subject_change_in_scary_points": {
+    "crime_justice": -0.001,
+    "politics": -0.0003,
+    "sport": -0.0002,
+    "culture_lifestyle": 0.0001,
+    "science_tech": 0.0001,
+    "economy": 0.0002,
+    "environment": 0.0003,
+    "health": 0.001,
+    "disaster_accident": 0.0147,
+    "war_terror": 0.0148
+   }
+  },
+  "subjects_model": "{\"('share', 'pre-COVID 2017-19')\":{\"crime_justice\":0.081,\"culture_lifestyle\":0.265,\"disaster_accident\":0.043,\"economy\":0.09,\"environment\":0.033,\"health\":0.06,\"politics\":0.151,\"science_tech\":0.087,\"sport\":0.113,\"war_terror\":0.076},\"('share', 'COVID 2020-21')\":{\"crime_justice\":0.073,\"culture_lifestyle\":0.214,\"disaster_accident\":0.047,\"economy\":0.083,\"environment\":0.035,\"health\":0.16,\"politics\":0.143,\"science_tech\":0.087,\"sport\":0.097,\"war_terror\":0.061},\"('share', 'after 2022-23')\":{\"crime_justice\":0.086,\"culture_lifestyle\":0.224,\"disaster_accident\":0.059,\"economy\":0.091,\"environment\":0.04,\"health\":0.074,\"politics\":0.122,\"science_tech\":0.089,\"sport\":0.096,\"war_terror\":0.12},\"('share', 'recent 2024-26')\":{\"crime_justice\":0.087,\"culture_lifestyle\":0.226,\"disaster_accident\":0.07,\"economy\":0.086,\"environment\":0.039,\"health\":0.057,\"politics\":0.179,\"science_tech\":0.088,\"sport\":0.048,\"war_terror\":0.12},\"('scary', 'pre-COVID 2017-19')\":{\"crime_justice\":0.256,\"culture_lifestyle\":0.001,\"disaster_accident\":0.45,\"economy\":0.009,\"environment\":0.016,\"health\":0.056,\"politics\":0.013,\"science_tech\":0.006,\"sport\":0.003,\"war_terror\":0.309},\"('scary', 'COVID 2020-21')\":{\"crime_justice\":0.247,\"culture_lifestyle\":0.001,\"disaster_accident\":0.459,\"economy\":0.017,\"environment\":0.02,\"health\":0.149,\"politics\":0.011,\"science_tech\":0.007,\"sport\":0.006,\"war_terror\":0.3},\"('scary', 'after 2022-23')\":{\"crime_justice\":0.248,\"culture_lifestyle\":0.001,\"disaster_accident\":0.468,\"economy\":0.014,\"environment\":0.023,\"health\":0.098,\"politics\":0.011,\"science_tech\":0.007,\"sport\":0.004,\"war_terror\":0.315},\"('scary', 'recent 2024-26')\":{\"crime_justice\":0.226,\"culture_lifestyle\":0.001,\"disaster_accident\":0.489,\"economy\":0.012,\"environment\":0.022,\"health\":0.076,\"politics\":0.009,\"science_tech\":0.006,\"sport\":0.003,\"war_terror\":0.318}}",
+  "shift_share_outlet_tag": {
+   "total": 0.0339,
+   "agenda": 0.0476,
+   "framing": -0.0054,
+   "interaction": -0.0083,
+   "by_subject_change_in_scary_points": {
+    "politics": -0.0015,
+    "crime_justice": -0.0014,
+    "sport": -0.0006,
+    "culture_lifestyle": -0.0003,
+    "environment": -0.0002,
+    "economy": 0.0,
+    "science_tech": 0.0002,
+    "health": 0.0011,
+    "disaster_accident": 0.0141,
+    "war_terror": 0.0225
+   }
+  },
+  "subjects_outlet_tag": "{\"('share', 'pre-COVID 2017-19')\":{\"crime_justice\":0.069,\"culture_lifestyle\":0.347,\"disaster_accident\":0.034,\"economy\":0.133,\"environment\":0.023,\"health\":0.054,\"politics\":0.15,\"science_tech\":0.041,\"sport\":0.095,\"war_terror\":0.054},\"('share', 'COVID 2020-21')\":{\"crime_justice\":0.07,\"culture_lifestyle\":0.294,\"disaster_accident\":0.043,\"economy\":0.083,\"environment\":0.021,\"health\":0.226,\"politics\":0.094,\"science_tech\":0.035,\"sport\":0.087,\"war_terror\":0.048},\"('share', 'after 2022-23')\":{\"crime_justice\":0.082,\"culture_lifestyle\":0.299,\"disaster_accident\":0.062,\"economy\":0.113,\"environment\":0.026,\"health\":0.078,\"politics\":0.109,\"science_tech\":0.035,\"sport\":0.076,\"war_terror\":0.121},\"('share', 'recent 2024-26')\":{\"crime_justice\":0.078,\"culture_lifestyle\":0.303,\"disaster_accident\":0.064,\"economy\":0.12,\"environment\":0.027,\"health\":0.059,\"politics\":0.165,\"science_tech\":0.041,\"sport\":0.002,\"war_terror\":0.14},\"('scary', 'pre-COVID 2017-19')\":{\"crime_justice\":0.273,\"culture_lifestyle\":0.007,\"disaster_accident\":0.453,\"economy\":0.017,\"environment\":0.034,\"health\":0.071,\"politics\":0.042,\"science_tech\":0.019,\"sport\":0.007,\"war_terror\":0.362},\"('scary', 'COVID 2020-21')\":{\"crime_justice\":0.235,\"culture_lifestyle\":0.008,\"disaster_accident\":0.391,\"economy\":0.019,\"environment\":0.023,\"health\":0.132,\"politics\":0.036,\"science_tech\":0.021,\"sport\":0.011,\"war_terror\":0.334},\"('scary', 'after 2022-23')\":{\"crime_justice\":0.244,\"culture_lifestyle\":0.007,\"disaster_accident\":0.379,\"economy\":0.02,\"environment\":0.025,\"health\":0.108,\"politics\":0.037,\"science_tech\":0.012,\"sport\":0.009,\"war_terror\":0.323},\"('scary', 'recent 2024-26')\":{\"crime_justice\":0.222,\"culture_lifestyle\":0.007,\"disaster_accident\":0.458,\"economy\":0.019,\"environment\":0.022,\"health\":0.082,\"politics\":0.029,\"science_tech\":0.022,\"sport\":0.033,\"war_terror\":0.301}}",
+  "robust_confident_only_scary_by_period": {
+   "pre-COVID 2017-19": 0.1157,
+   "COVID 2020-21": 0.1319,
+   "after 2022-23": 0.1584,
+   "recent 2024-26": 0.1778
+  },
+  "robust_with_generic_scary_by_period": {
+   "pre-COVID 2017-19": 0.0689,
+   "COVID 2020-21": 0.085,
+   "after 2022-23": 0.0954,
+   "recent 2024-26": 0.0983
+  }
+ },
+ "NYT opinion": {
+  "by_year": [
+   {
+    "year": 2015,
+    "n": 5168,
+    "scary": 0.0346,
+    "alarm": 0.0025,
+    "fear": 0.2452
+   },
+   {
+    "year": 2016,
+    "n": 6088,
+    "scary": 0.0296,
+    "alarm": 0.0016,
+    "fear": 0.2216
+   },
+   {
+    "year": 2017,
+    "n": 6346,
+    "scary": 0.0219,
+    "alarm": 0.0011,
+    "fear": 0.1876
+   },
+   {
+    "year": 2018,
+    "n": 6398,
+    "scary": 0.0197,
+    "alarm": 0.0017,
+    "fear": 0.1836
+   },
+   {
+    "year": 2019,
+    "n": 5785,
+    "scary": 0.0204,
+    "alarm": 0.0014,
+    "fear": 0.1876
+   },
+   {
+    "year": 2020,
+    "n": 5089,
+    "scary": 0.0332,
+    "alarm": 0.0016,
+    "fear": 0.2553
+   },
+   {
+    "year": 2021,
+    "n": 3938,
+    "scary": 0.0226,
+    "alarm": 0.0003,
+    "fear": 0.228
+   },
+   {
+    "year": 2022,
+    "n": 3728,
+    "scary": 0.0263,
+    "alarm": 0.0008,
+    "fear": 0.2267
+   },
+   {
+    "year": 2023,
+    "n": 3813,
+    "scary": 0.0241,
+    "alarm": 0.001,
+    "fear": 0.2196
+   },
+   {
+    "year": 2024,
+    "n": 3841,
+    "scary": 0.0195,
+    "alarm": 0.0013,
+    "fear": 0.188
+   },
+   {
+    "year": 2025,
+    "n": 3523,
+    "scary": 0.0173,
+    "alarm": 0.0003,
+    "fear": 0.1861
+   },
+   {
+    "year": 2026,
+    "n": 2362,
+    "scary": 0.0186,
+    "alarm": 0.0,
+    "fear": 0.1866
+   }
+  ],
+  "by_period": [
+   {
+    "period": "pre-COVID 2017-19",
+    "n": 18529,
+    "scary": 0.0207,
+    "alarm": 0.0014,
+    "fear": 0.1862
+   },
+   {
+    "period": "COVID 2020-21",
+    "n": 9027,
+    "scary": 0.0286,
+    "alarm": 0.001,
+    "fear": 0.2434
+   },
+   {
+    "period": "after 2022-23",
+    "n": 7541,
+    "scary": 0.0252,
+    "alarm": 0.0009,
+    "fear": 0.2231
+   },
+   {
+    "period": "recent 2024-26",
+    "n": 9726,
+    "scary": 0.0185,
+    "alarm": 0.0006,
+    "fear": 0.187
+   }
+  ],
+  "diff_recent_vs_pre": {
+   "scary": {
+    "diff": -0.0022,
+    "ci95": [
+     -0.0055,
+     0.0014
+    ]
+   },
+   "alarm": {
+    "diff": -0.0008,
+    "ci95": [
+     -0.0015,
+     -0.0001
+    ]
+   }
+  },
+  "diff_covid_vs_pre": {
+   "scary": {
+    "diff": 0.0079,
+    "ci95": [
+     0.0043,
+     0.0118
+    ]
+   },
+   "alarm": {
+    "diff": -0.0004,
+    "ci95": [
+     -0.0012,
+     0.0004
+    ]
+   }
+  },
+  "shift_share_model": {
+   "total": -0.0022,
+   "agenda": -0.0023,
+   "framing": -0.0001,
+   "interaction": 0.0003,
+   "by_subject_change_in_scary_points": {
+    "crime_justice": -0.0029,
+    "economy": -0.0002,
+    "politics": -0.0002,
+    "culture_lifestyle": -0.0001,
+    "disaster_accident": -0.0001,
+    "science_tech": -0.0,
+    "sport": 0.0,
+    "environment": 0.0,
+    "war_terror": 0.0006,
+    "health": 0.0007
+   }
+  },
+  "subjects_model": "{\"('share', 'pre-COVID 2017-19')\":{\"crime_justice\":0.059,\"culture_lifestyle\":0.113,\"disaster_accident\":0.027,\"economy\":0.091,\"environment\":0.043,\"health\":0.103,\"politics\":0.33,\"science_tech\":0.093,\"sport\":0.039,\"war_terror\":0.103},\"('share', 'COVID 2020-21')\":{\"crime_justice\":0.048,\"culture_lifestyle\":0.107,\"disaster_accident\":0.026,\"economy\":0.083,\"environment\":0.04,\"health\":0.21,\"politics\":0.302,\"science_tech\":0.083,\"sport\":0.034,\"war_terror\":0.068},\"('share', 'after 2022-23')\":{\"crime_justice\":0.042,\"culture_lifestyle\":0.161,\"disaster_accident\":0.029,\"economy\":0.093,\"environment\":0.055,\"health\":0.139,\"politics\":0.245,\"science_tech\":0.088,\"sport\":0.037,\"war_terror\":0.113},\"('share', 'recent 2024-26')\":{\"crime_justice\":0.031,\"culture_lifestyle\":0.185,\"disaster_accident\":0.027,\"economy\":0.072,\"environment\":0.041,\"health\":0.097,\"politics\":0.314,\"science_tech\":0.093,\"sport\":0.035,\"war_terror\":0.106},\"('scary', 'pre-COVID 2017-19')\":{\"crime_justice\":0.086,\"culture_lifestyle\":0.001,\"disaster_accident\":0.162,\"economy\":0.002,\"environment\":0.009,\"health\":0.014,\"politics\":0.002,\"science_tech\":0.002,\"sport\":0.0,\"war_terror\":0.08},\"('scary', 'COVID 2020-21')\":{\"crime_justice\":0.085,\"culture_lifestyle\":0.004,\"disaster_accident\":0.196,\"economy\":0.007,\"environment\":0.0,\"health\":0.058,\"politics\":0.004,\"science_tech\":0.003,\"sport\":0.0,\"war_terror\":0.07},\"('scary', 'after 2022-23')\":{\"crime_justice\":0.091,\"culture_lifestyle\":0.002,\"disaster_accident\":0.134,\"economy\":0.004,\"environment\":0.012,\"health\":0.031,\"politics\":0.004,\"science_tech\":0.0,\"sport\":0.004,\"war_terror\":0.095},\"('scary', 'recent 2024-26')\":{\"crime_justice\":0.074,\"culture_lifestyle\":0.0,\"disaster_accident\":0.158,\"economy\":0.0,\"environment\":0.01,\"health\":0.021,\"politics\":0.002,\"science_tech\":0.002,\"sport\":0.0,\"war_terror\":0.084}}",
+  "shift_share_outlet_tag": {
+   "total": -0.0033,
+   "agenda": 0.0017,
+   "framing": -0.0063,
+   "interaction": 0.0014,
+   "by_subject_change_in_scary_points": {
+    "crime_justice": -0.0048,
+    "politics": -0.0034,
+    "environment": -0.0003,
+    "culture_lifestyle": 0.0,
+    "science_tech": 0.0001,
+    "disaster_accident": 0.0002,
+    "economy": 0.0004,
+    "health": 0.0009,
+    "war_terror": 0.0038
+   }
+  },
+  "subjects_outlet_tag": "{\"('share', 'pre-COVID 2017-19')\":{\"crime_justice\":0.102,\"culture_lifestyle\":0.002,\"disaster_accident\":0.027,\"economy\":0.12,\"environment\":0.051,\"health\":0.086,\"politics\":0.457,\"science_tech\":0.058,\"war_terror\":0.096},\"('share', 'COVID 2020-21')\":{\"crime_justice\":0.089,\"culture_lifestyle\":0.017,\"disaster_accident\":0.044,\"economy\":0.078,\"environment\":0.03,\"health\":0.371,\"politics\":0.259,\"science_tech\":0.042,\"war_terror\":0.07},\"('share', 'after 2022-23')\":{\"crime_justice\":0.095,\"culture_lifestyle\":0.056,\"disaster_accident\":0.068,\"economy\":0.13,\"environment\":0.046,\"health\":0.137,\"politics\":0.253,\"science_tech\":0.052,\"war_terror\":0.162},\"('share', 'recent 2024-26')\":{\"crime_justice\":0.065,\"culture_lifestyle\":0.104,\"disaster_accident\":0.04,\"economy\":0.125,\"environment\":0.028,\"health\":0.086,\"politics\":0.302,\"science_tech\":0.075,\"war_terror\":0.175},\"('scary', 'pre-COVID 2017-19')\":{\"crime_justice\":0.067,\"culture_lifestyle\":0.0,\"disaster_accident\":0.092,\"economy\":0.004,\"environment\":0.007,\"health\":0.02,\"politics\":0.012,\"science_tech\":0.005,\"war_terror\":0.062},\"('scary', 'COVID 2020-21')\":{\"crime_justice\":0.058,\"culture_lifestyle\":0.0,\"disaster_accident\":0.059,\"economy\":0.005,\"environment\":0.013,\"health\":0.047,\"politics\":0.007,\"science_tech\":0.0,\"war_terror\":0.057},\"('scary', 'after 2022-23')\":{\"crime_justice\":0.042,\"culture_lifestyle\":0.0,\"disaster_accident\":0.038,\"economy\":0.005,\"environment\":0.014,\"health\":0.045,\"politics\":0.009,\"science_tech\":0.003,\"war_terror\":0.08},\"('scary', 'recent 2024-26')\":{\"crime_justice\":0.03,\"culture_lifestyle\":0.0,\"disaster_accident\":0.067,\"economy\":0.007,\"environment\":0.004,\"health\":0.03,\"politics\":0.007,\"science_tech\":0.005,\"war_terror\":0.056}}",
+  "robust_confident_only_scary_by_period": {
+   "pre-COVID 2017-19": 0.0443,
+   "COVID 2020-21": 0.055,
+   "after 2022-23": 0.0533,
+   "recent 2024-26": 0.0401
+  },
+  "robust_with_generic_scary_by_period": {
+   "pre-COVID 2017-19": 0.0205,
+   "COVID 2020-21": 0.0284,
+   "after 2022-23": 0.0246,
+   "recent 2024-26": 0.0185
+  }
+ },
+ "Guardian (random days)": {
+  "by_year": [
+   {
+    "year": 2015,
+    "n": 3959,
+    "scary": 0.0611,
+    "alarm": 0.0078,
+    "fear": 0.2912
+   },
+   {
+    "year": 2016,
+    "n": 3518,
+    "scary": 0.0523,
+    "alarm": 0.0054,
+    "fear": 0.2855
+   },
+   {
+    "year": 2017,
+    "n": 2771,
+    "scary": 0.0585,
+    "alarm": 0.0115,
+    "fear": 0.2971
+   },
+   {
+    "year": 2018,
+    "n": 2671,
+    "scary": 0.0577,
+    "alarm": 0.0075,
+    "fear": 0.2964
+   },
+   {
+    "year": 2019,
+    "n": 2656,
+    "scary": 0.0614,
+    "alarm": 0.0098,
+    "fear": 0.3293
+   },
+   {
+    "year": 2020,
+    "n": 2588,
+    "scary": 0.114,
+    "alarm": 0.0155,
+    "fear": 0.4681
+   },
+   {
+    "year": 2021,
+    "n": 1952,
+    "scary": 0.0881,
+    "alarm": 0.0092,
+    "fear": 0.4294
+   },
+   {
+    "year": 2022,
+    "n": 2470,
+    "scary": 0.087,
+    "alarm": 0.0121,
+    "fear": 0.4122
+   },
+   {
+    "year": 2023,
+    "n": 2761,
+    "scary": 0.0862,
+    "alarm": 0.0159,
+    "fear": 0.4167
+   },
+   {
+    "year": 2024,
+    "n": 2614,
+    "scary": 0.0926,
+    "alarm": 0.0157,
+    "fear": 0.4121
+   },
+   {
+    "year": 2025,
+    "n": 2635,
+    "scary": 0.0816,
+    "alarm": 0.0159,
+    "fear": 0.4027
+   },
+   {
+    "year": 2026,
+    "n": 1801,
+    "scary": 0.0933,
+    "alarm": 0.0111,
+    "fear": 0.4219
+   }
+  ],
+  "by_period": [
+   {
+    "period": "pre-COVID 2017-19",
+    "n": 8098,
+    "scary": 0.0592,
+    "alarm": 0.0096,
+    "fear": 0.3074
+   },
+   {
+    "period": "COVID 2020-21",
+    "n": 4540,
+    "scary": 0.1029,
+    "alarm": 0.0128,
+    "fear": 0.4515
+   },
+   {
+    "period": "after 2022-23",
+    "n": 5231,
+    "scary": 0.0866,
+    "alarm": 0.0141,
+    "fear": 0.4146
+   },
+   {
+    "period": "recent 2024-26",
+    "n": 7050,
+    "scary": 0.0887,
+    "alarm": 0.0146,
+    "fear": 0.4111
+   }
+  ],
+  "diff_recent_vs_pre": {
+   "scary": {
+    "diff": 0.0295,
+    "ci95": [
+     0.0193,
+     0.0392
+    ]
+   },
+   "alarm": {
+    "diff": 0.005,
+    "ci95": [
+     0.0015,
+     0.0085
+    ]
+   }
+  },
+  "diff_covid_vs_pre": {
+   "scary": {
+    "diff": 0.0437,
+    "ci95": [
+     0.0314,
+     0.0571
+    ]
+   },
+   "alarm": {
+    "diff": 0.0032,
+    "ci95": [
+     -0.0008,
+     0.007
+    ]
+   }
+  },
+  "shift_share_model": {
+   "total": 0.0295,
+   "agenda": 0.0196,
+   "framing": 0.0077,
+   "interaction": 0.0022,
+   "by_subject_change_in_scary_points": {
+    "culture_lifestyle": -0.0003,
+    "environment": -0.0,
+    "science_tech": 0.0001,
+    "health": 0.0003,
+    "economy": 0.0006,
+    "politics": 0.0006,
+    "sport": 0.0006,
+    "crime_justice": 0.0043,
+    "disaster_accident": 0.0087,
+    "war_terror": 0.0148
+   }
+  },
+  "subjects_model": "{\"('share', 'pre-COVID 2017-19')\":{\"crime_justice\":0.072,\"culture_lifestyle\":0.281,\"disaster_accident\":0.03,\"economy\":0.097,\"environment\":0.05,\"health\":0.061,\"politics\":0.128,\"science_tech\":0.048,\"sport\":0.177,\"war_terror\":0.056},\"('share', 'COVID 2020-21')\":{\"crime_justice\":0.074,\"culture_lifestyle\":0.226,\"disaster_accident\":0.035,\"economy\":0.1,\"environment\":0.057,\"health\":0.173,\"politics\":0.088,\"science_tech\":0.039,\"sport\":0.169,\"war_terror\":0.039},\"('share', 'after 2022-23')\":{\"crime_justice\":0.088,\"culture_lifestyle\":0.258,\"disaster_accident\":0.04,\"economy\":0.091,\"environment\":0.07,\"health\":0.071,\"politics\":0.096,\"science_tech\":0.037,\"sport\":0.157,\"war_terror\":0.09},\"('share', 'recent 2024-26')\":{\"crime_justice\":0.089,\"culture_lifestyle\":0.246,\"disaster_accident\":0.038,\"economy\":0.101,\"environment\":0.057,\"health\":0.059,\"politics\":0.102,\"science_tech\":0.047,\"sport\":0.163,\"war_terror\":0.099},\"('scary', 'pre-COVID 2017-19')\":{\"crime_justice\":0.266,\"culture_lifestyle\":0.003,\"disaster_accident\":0.462,\"economy\":0.019,\"environment\":0.032,\"health\":0.094,\"politics\":0.008,\"science_tech\":0.013,\"sport\":0.001,\"war_terror\":0.263},\"('scary', 'COVID 2020-21')\":{\"crime_justice\":0.272,\"culture_lifestyle\":0.004,\"disaster_accident\":0.509,\"economy\":0.042,\"environment\":0.031,\"health\":0.25,\"politics\":0.02,\"science_tech\":0.006,\"sport\":0.007,\"war_terror\":0.309},\"('scary', 'after 2022-23')\":{\"crime_justice\":0.203,\"culture_lifestyle\":0.003,\"disaster_accident\":0.546,\"economy\":0.021,\"environment\":0.027,\"health\":0.126,\"politics\":0.016,\"science_tech\":0.0,\"sport\":0.004,\"war_terror\":0.347},\"('scary', 'recent 2024-26')\":{\"crime_justice\":0.264,\"culture_lifestyle\":0.002,\"disaster_accident\":0.59,\"economy\":0.024,\"environment\":0.027,\"health\":0.101,\"politics\":0.015,\"science_tech\":0.015,\"sport\":0.004,\"war_terror\":0.297}}",
+  "shift_share_outlet_tag": {
+   "total": 0.0543,
+   "agenda": 0.0102,
+   "framing": 0.0036,
+   "interaction": 0.0405,
+   "by_subject_change_in_scary_points": {
+    "culture_lifestyle": -0.0014,
+    "sport": 0.0001,
+    "science_tech": 0.0003,
+    "economy": 0.0019,
+    "health": 0.0024,
+    "environment": 0.0025,
+    "politics": 0.0038,
+    "crime_justice": 0.0114,
+    "disaster_accident": 0.0134,
+    "war_terror": 0.0198
+   }
+  },
+  "subjects_outlet_tag": "{\"('share', 'pre-COVID 2017-19')\":{\"crime_justice\":0.004,\"culture_lifestyle\":0.43,\"disaster_accident\":null,\"economy\":0.092,\"environment\":0.046,\"health\":0.048,\"politics\":0.085,\"science_tech\":0.042,\"sport\":0.254,\"war_terror\":null},\"('share', 'COVID 2020-21')\":{\"crime_justice\":0.006,\"culture_lifestyle\":0.402,\"disaster_accident\":null,\"economy\":0.119,\"environment\":0.058,\"health\":0.048,\"politics\":0.062,\"science_tech\":0.036,\"sport\":0.269,\"war_terror\":null},\"('share', 'after 2022-23')\":{\"crime_justice\":0.043,\"culture_lifestyle\":0.279,\"disaster_accident\":0.022,\"economy\":0.11,\"environment\":0.078,\"health\":0.083,\"politics\":0.127,\"science_tech\":0.03,\"sport\":0.159,\"war_terror\":0.07},\"('share', 'recent 2024-26')\":{\"crime_justice\":0.049,\"culture_lifestyle\":0.26,\"disaster_accident\":0.024,\"economy\":0.119,\"environment\":0.072,\"health\":0.073,\"politics\":0.119,\"science_tech\":0.042,\"sport\":0.176,\"war_terror\":0.066},\"('scary', 'pre-COVID 2017-19')\":{\"crime_justice\":0.105,\"culture_lifestyle\":0.006,\"disaster_accident\":null,\"economy\":0.041,\"environment\":0.073,\"health\":0.138,\"politics\":0.009,\"science_tech\":0.029,\"sport\":0.005,\"war_terror\":null},\"('scary', 'COVID 2020-21')\":{\"crime_justice\":0.0,\"culture_lifestyle\":0.01,\"disaster_accident\":null,\"economy\":0.074,\"environment\":0.053,\"health\":0.198,\"politics\":0.068,\"science_tech\":0.022,\"sport\":0.011,\"war_terror\":null},\"('scary', 'after 2022-23')\":{\"crime_justice\":0.21,\"culture_lifestyle\":0.005,\"disaster_accident\":0.44,\"economy\":0.048,\"environment\":0.062,\"health\":0.142,\"politics\":0.041,\"science_tech\":0.044,\"sport\":0.004,\"war_terror\":0.398},\"('scary', 'recent 2024-26')\":{\"crime_justice\":0.242,\"culture_lifestyle\":0.004,\"disaster_accident\":0.554,\"economy\":0.048,\"environment\":0.082,\"health\":0.123,\"politics\":0.039,\"science_tech\":0.035,\"sport\":0.007,\"war_terror\":0.301}}",
+  "robust_confident_only_scary_by_period": {
+   "pre-COVID 2017-19": 0.0756,
+   "COVID 2020-21": 0.1312,
+   "after 2022-23": 0.1162,
+   "recent 2024-26": 0.1195
+  },
+  "robust_with_generic_scary_by_period": {
+   "pre-COVID 2017-19": 0.0587,
+   "COVID 2020-21": 0.1023,
+   "after 2022-23": 0.0861,
+   "recent 2024-26": 0.0881
+  }
+ },
+ "ABC": {
+  "by_year": [
+   {
+    "year": 2003,
+    "n": 63878,
+    "scary": 0.1239,
+    "alarm": 0.0327,
+    "fear": 0.5382
+   },
+   {
+    "year": 2004,
+    "n": 72562,
+    "scary": 0.1229,
+    "alarm": 0.0297,
+    "fear": 0.538
+   },
+   {
+    "year": 2005,
+    "n": 73000,
+    "scary": 0.1183,
+    "alarm": 0.0252,
+    "fear": 0.5332
+   },
+   {
+    "year": 2006,
+    "n": 66233,
+    "scary": 0.1245,
+    "alarm": 0.0248,
+    "fear": 0.547
+   },
+   {
+    "year": 2007,
+    "n": 76546,
+    "scary": 0.1282,
+    "alarm": 0.0253,
+    "fear": 0.5542
+   },
+   {
+    "year": 2008,
+    "n": 79501,
+    "scary": 0.132,
+    "alarm": 0.0301,
+    "fear": 0.5583
+   },
+   {
+    "year": 2009,
+    "n": 75061,
+    "scary": 0.1398,
+    "alarm": 0.0227,
+    "fear": 0.5633
+   },
+   {
+    "year": 2010,
+    "n": 72777,
+    "scary": 0.1219,
+    "alarm": 0.0198,
+    "fear": 0.5112
+   },
+   {
+    "year": 2011,
+    "n": 75238,
+    "scary": 0.1261,
+    "alarm": 0.0194,
+    "fear": 0.5206
+   },
+   {
+    "year": 2012,
+    "n": 84406,
+    "scary": 0.1054,
+    "alarm": 0.0145,
+    "fear": 0.4599
+   },
+   {
+    "year": 2013,
+    "n": 88804,
+    "scary": 0.1077,
+    "alarm": 0.0148,
+    "fear": 0.4693
+   },
+   {
+    "year": 2014,
+    "n": 79527,
+    "scary": 0.1072,
+    "alarm": 0.0145,
+    "fear": 0.4587
+   },
+   {
+    "year": 2015,
+    "n": 76057,
+    "scary": 0.1146,
+    "alarm": 0.0167,
+    "fear": 0.4892
+   },
+   {
+    "year": 2016,
+    "n": 60944,
+    "scary": 0.1188,
+    "alarm": 0.0172,
+    "fear": 0.5047
+   },
+   {
+    "year": 2017,
+    "n": 47029,
+    "scary": 0.1168,
+    "alarm": 0.0172,
+    "fear": 0.4929
+   },
+   {
+    "year": 2018,
+    "n": 39584,
+    "scary": 0.1273,
+    "alarm": 0.0202,
+    "fear": 0.5248
+   },
+   {
+    "year": 2019,
+    "n": 33227,
+    "scary": 0.1401,
+    "alarm": 0.0203,
+    "fear": 0.5685
+   },
+   {
+    "year": 2020,
+    "n": 39696,
+    "scary": 0.1602,
+    "alarm": 0.016,
+    "fear": 0.6729
+   },
+   {
+    "year": 2021,
+    "n": 17912,
+    "scary": 0.1803,
+    "alarm": 0.0189,
+    "fear": 0.6648
+   }
+  ]
+ },
+ "model_check_random80": {
+  "n": 80,
+  "true_scary": 0.062,
+  "model_scary": 0.062,
+  "true_mean": 0.338,
+  "model_mean": 0.375
+ }
+}

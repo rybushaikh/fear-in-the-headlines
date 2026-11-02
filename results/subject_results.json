@@ -1,0 +1,148 @@
+{
+ "heldout": {
+  "overall": 0.639,
+  "by_src": {
+   "guardian": 0.679,
+   "huffpost": 0.631,
+   "nyt": 0.611
+  },
+  "by_subject": {
+   "crime_justice": 0.65,
+   "culture_lifestyle": 0.644,
+   "disaster_accident": 0.629,
+   "economy": 0.59,
+   "environment": 0.627,
+   "health": 0.606,
+   "politics": 0.559,
+   "science_tech": 0.601,
+   "sport": 0.842,
+   "war_terror": 0.643
+  },
+  "conf_ge_60": {
+   "share": 0.523,
+   "acc": 0.797
+  }
+ },
+ "confusion": {
+  "crime_justice": {
+   "crime_justice": 2179,
+   "culture_lifestyle": 122,
+   "disaster_accident": 130,
+   "economy": 82,
+   "environment": 31,
+   "health": 148,
+   "politics": 241,
+   "science_tech": 57,
+   "sport": 57,
+   "war_terror": 157
+  },
+  "culture_lifestyle": {
+   "crime_justice": 145,
+   "culture_lifestyle": 2896,
+   "disaster_accident": 69,
+   "economy": 257,
+   "environment": 133,
+   "health": 396,
+   "politics": 190,
+   "science_tech": 193,
+   "sport": 174,
+   "war_terror": 46
+  },
+  "disaster_accident": {
+   "crime_justice": 97,
+   "culture_lifestyle": 60,
+   "disaster_accident": 1624,
+   "economy": 81,
+   "environment": 183,
+   "health": 87,
+   "politics": 62,
+   "science_tech": 43,
+   "sport": 24,
+   "war_terror": 82
+  },
+  "economy": {
+   "crime_justice": 99,
+   "culture_lifestyle": 138,
+   "disaster_accident": 76,
+   "economy": 2219,
+   "environment": 184,
+   "health": 321,
+   "politics": 221,
+   "science_tech": 148,
+   "sport": 55,
+   "war_terror": 74
+  },
+  "environment": {
+   "crime_justice": 46,
+   "culture_lifestyle": 110,
+   "disaster_accident": 267,
+   "economy": 136,
+   "environment": 1627,
+   "health": 104,
+   "politics": 88,
+   "science_tech": 111,
+   "sport": 21,
+   "war_terror": 51
+  },
+  "health": {
+   "crime_justice": 125,
+   "culture_lifestyle": 315,
+   "disaster_accident": 66,
+   "economy": 198,
+   "environment": 55,
+   "health": 2729,
+   "politics": 113,
+   "science_tech": 107,
+   "sport": 38,
+   "war_terror": 63
+  },
+  "politics": {
+   "crime_justice": 301,
+   "culture_lifestyle": 180,
+   "disaster_accident": 139,
+   "economy": 289,
+   "environment": 92,
+   "health": 235,
+   "politics": 1897,
+   "science_tech": 95,
+   "sport": 68,
+   "war_terror": 202
+  },
+  "science_tech": {
+   "crime_justice": 95,
+   "culture_lifestyle": 342,
+   "disaster_accident": 87,
+   "economy": 279,
+   "environment": 194,
+   "health": 281,
+   "politics": 94,
+   "science_tech": 1302,
+   "sport": 49,
+   "war_terror": 64
+  },
+  "sport": {
+   "crime_justice": 81,
+   "culture_lifestyle": 268,
+   "disaster_accident": 48,
+   "economy": 133,
+   "environment": 55,
+   "health": 123,
+   "politics": 146,
+   "science_tech": 72,
+   "sport": 2749,
+   "war_terror": 45
+  },
+  "war_terror": {
+   "crime_justice": 186,
+   "culture_lifestyle": 69,
+   "disaster_accident": 75,
+   "economy": 85,
+   "environment": 42,
+   "health": 76,
+   "politics": 344,
+   "science_tech": 39,
+   "sport": 28,
+   "war_terror": 1414
+  }
+ }
+}

@@ -1,0 +1,25 @@
+# Default deny: nothing is committed unless it is allowed below.
+*
+!*/
+!/.gitignore
+!/.env.example
+!/README.md
+!/LICENSE
+!/SECURITY.md
+!/requirements.txt
+!/pipeline/*.py
+!/noesis_fear/*.py
+!/noesis_fear/models/fear_v7/*.json
+!/docs/**/*.md
+!/docs/figures/*.png
+!/results/*.json
+!/.github/**/*.yml
+# Never, even if an allow rule above would match
+.env
+.env.*
+!/.env.example
+data/
+*.parquet
+*.safetensors
+*.pt
+*.numbers
