@@ -15,7 +15,7 @@
 
 ![What drove the rise in scary NYT headlines](docs/figures/figure2-nyt-rise-bridge.png)
 
-"Scary" means level 2 or 3 on the [fear scale](docs/codebook.md). Read the [working paper](docs/paper.md) or the [short results](docs/results-covid.md).
+"Scary" means level 2 or 3 on the [fear scale](docs/codebook.md). Start with the **[final report](docs/final-report.md)**, or read the [working paper](docs/paper.md) for the full method.
 
 ## How well the model works
 
@@ -32,7 +32,9 @@ Two independent labellers agreed at κ .93. The weakest level is mild news (leve
 
 | Path | Contents |
 |---|---|
+| [`docs/final-report.md`](docs/final-report.md) | What we accomplished, the findings and what's next |
 | [`docs/paper.md`](docs/paper.md) | Working paper |
+| [`docs/results-covid.md`](docs/results-covid.md) | Detailed results tables for the COVID-era analysis |
 | [`docs/codebook.md`](docs/codebook.md) | The fear scale and its rules |
 | [`docs/plans/`](docs/plans) | Plans written before results were computed, with their outcomes |
 | [`pipeline/`](pipeline) | The scripts behind the final model and analysis (see below) |
