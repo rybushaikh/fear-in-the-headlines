@@ -11,7 +11,7 @@ for f in sorted(glob.glob(str(R / "data/raw/outlets/nyt/20*.json.gz"))):
         rows.append(dict(id=d.get("_id") or d.get("uri"), url=d.get("web_url") or "", sec=d.get("section_name") or "", desk=d.get("news_desk") or "", pp=bool(d.get("print_page")), ph=(d.get("headline") or {}).get("print_headline") or ""))
 M = pd.DataFrame(rows).drop_duplicates("id"); D = pd.read_parquet(O / "all_scored.parquet", columns=["source", "id", "date", "year", "headline", "material", "outlet_subject", "fear", "level", "subject", "generic"])
 A = D[(D.source == "nyt") & (D.material == "news") & ~D.generic].merge(M, on="id", how="left"); A["scary"] = A.level >= 2; A["alarm"] = A.fear >= 2.5; A["wd"] = A.subject.isin(["war_terror", "disaster_accident"]); A["month"] = A.date.str[:7]
-A["www"] = A.url.str.contains(r"^https?://www\.nytimes\.com", regex=True); A["dup"] = A.assign(k=A.headline.str.lower()).duplicated(["date", "k"])
+A["www"] = A.url.str.contains(r"^https?://www\.nytimes\.com", regex=True); A["dup"] = False; A.loc[A.www, "dup"] = A[A.www].assign(k=A.headline.str.lower()).duplicated(["date", "k"])
 A["closed"] = A.sec.isin(["Sports", "The Learning Network", "Crosswords & Games"]) | A.desk.isin(["Sports", "Games", "Learning", "Society"])
 W = A[A.www]; V = W[~W.dup]; C = V[~V.closed]; C.drop(columns=["ph"]).to_parquet(O / "nyt_news_corrected.parquet")
 PRE, REC = (2017, 2019), (2024, 2026)
@@ -68,5 +68,5 @@ B2 = pd.read_parquet(O / "all_scored.parquet", columns=["source", "year", "headl
 A2 = A.assign(k=A.headline.str.lower()); ex = {}
 for t in [p.name for p in sorted((R / "data/eval").glob("scary_test*_private")) if (p / "labelled.parquet").exists()]:
     L = pd.read_parquet(R / f"data/eval/{t}/labelled.parquet"); L = L.assign(k=L.text.str.lower()).merge(A2.drop_duplicates("k")[["k", "www", "closed"]], on="k", how="left"); ex[t] = dict(items=len(L), matched_news=int(L.www.notna().sum()), blog=int((L.www == False).sum()), closed_section=int((L.closed == True).sum()))
-OUT["sealed_overlap"] = ex; print(ex); OUT["counts"] = dict(original=len(A), corrected=len(C), blog_other_domains=int((~A.www).sum()), repeats=int((A.www & A.dup).sum()), closed=int(V.closed.sum()), dup_2006=round(float(A[A.year == 2006].dup.mean()) * 100, 1), blog_2008=round(float((~A[A.year == 2008].www).mean()) * 100, 1), blog_2012=round(float((~A[A.year == 2012].www).mean()) * 100, 1)); print(OUT["counts"])
+OUT["sealed_overlap"] = ex; print(ex); OUT["counts"] = dict(original=len(A), corrected=len(C), blog_other_domains=int((~A.www).sum()), repeats=int((A.www & A.dup).sum()), closed=int(V.closed.sum()), dup_2006=round(float(A[(A.year == 2006) & A.www].dup.mean()) * 100, 1), blog_2008=round(float((~A[A.year == 2008].www).mean()) * 100, 1), blog_2012=round(float((~A[A.year == 2012].www).mean()) * 100, 1)); print(OUT["counts"])
 print("print headlines", OUT["print_headlines"]); json.dump(OUT, open(O / "analysis_corrected.json", "w"), indent=1, default=str); print("saved")

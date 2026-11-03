@@ -24,7 +24,7 @@ Most large-scale studies measure sentiment or general negativity with lexicons o
 
 - A written four-level fear codebook with tie-break rules, and a labelled corpus of about 3,900 headlines on that scale.
 - An offline, phone-sized fear model (MiniLM, about 90 MB) that matches codebook labels closely on sealed tests, plus a 10-subject classifier sharing the same encoder.
-- A scored analysis of 3.35 million headlines across three outlets and 24 years, and a pre-registered-style analysis of the COVID era with day-clustered uncertainty and a shift-share decomposition.
+- A scored analysis of 3.35 million headlines across three outlets and 24 years, and an analysis of the COVID era, planned in advance and later rerun on a corrected base, with day-clustered uncertainty and a shift-share decomposition.
 
 ## 2 Background
 
@@ -70,12 +70,12 @@ NYT and Guardian articles were deduplicated by article ID; Guardian random-day i
 
 An earlier version of this report used every NYT item typed "News". A reader's question about why 2008 looked so calm exposed the flaw: the scale barely counts financial panic, and about half of 2008's "news" items were blog-site posts, which are rarely scary. We then froze an audit plan (`docs/plans/data-audit.md`) and profiled the archive year by year. Fixes are post hoc, so everything that depends on them is exploratory.
 
-**Corrected base.** From 1,282,901 NYT news headlines we removed 256,274 from outside www.nytimes.com (blogs and DealBook: 49% of 2008, 56% of 2012, near zero from 2017), 30,264 same-day repeats (26% of 2006) and 140,113 from Sports, Games, the Learning Network and Society, which closed or are not news. That leaves 856,250.
+**Corrected base.** From 1,282,901 NYT news headlines we removed 256,274 from outside www.nytimes.com (blogs and DealBook: 49% of 2008, 56% of 2012, near zero from 2017), 30,132 same-day repeats (30% of 2006) and 140,127 from Sports, Games, the Learning Network and Society, which closed or are not news. That leaves 856,368.
 
 | Audit check | Finding | Effect on the 2017–19 to 2024–26 rise | Action |
 |---|---|---|---|
 | Blog sites and DealBook | Large in 2006–15, near zero after 2017 | None; it reshaped 2006–16 and the turning points | Removed |
-| Same-day repeats | 26% of 2006, under 2% elsewhere | None | Removed |
+| Same-day repeats | 30% of 2006, under 2% elsewhere | None | Removed |
 | Sports desk closed in 2023 | 8.4 calm headlines a day fell to almost none | −0.56 points | Removed |
 | Games, Learning, Society | Calm sections that grew or closed | +0.28, +0.07 and −0.22 points | Removed |
 | Express (quick-news) desk and new Weather desk | Express began about 2017; Weather about 2023 | −1.0 point if excluded | Kept; reported |
@@ -268,7 +268,7 @@ The 2007–11 low was far deeper in the earlier report (3.5%) because of blogs. 
 ### 6.8 Checks on the rise (exploratory)
 
 - **Is it just fewer calm headlines?** No. On the corrected base, scary headlines rose from 7.2 to 9.8 a day (+35%) and calm ones were about flat (80.6 to 82.3).
-- **Where do the extra scary headlines come from?** About 2.5 more a day on the blog-free base. Nearly half come from the Express quick-news desk (0.7 to 1.6 a day) and a new Weather desk (0 to 0.3), and about 30% from Foreign (3.6 to 4.3). National was flat and Metro fell slightly. Desks can be reorganised, so some of this may be stories moving between desks rather than new coverage.
+- **Where do the extra scary headlines come from?** About 2.6 more a day. Nearly half (46%) come from the Express quick-news desk (0.7 to 1.6 a day) and a new Weather desk (0 to 0.3), and about 29% from Foreign (3.6 to 4.3). A spot check of Weather headlines flagged as scary included some routine forecasts, so the model may overstate this desk. National was flat and Metro fell slightly. Desks can be reorganised, so some of this may be stories moving between desks rather than new coverage.
 - **Print vs web.** In print-only articles the share rose 1.0 point and scary headlines fell slightly per day (5.6 to 5.2), as the paper published less. Much of the rise is in web-only reporting. The print flag may be incomplete for recent months.
 - **Does it depend on the model?** Blind labels alone, across all NYT article types, also show a rise, from 4.2% (2017–19, CI 2.5 to 7.3) to 11.0% (2024–26, CI 5.5 to 18.1): +6.7 points, CI 0.3 to 14.4. The direction agrees with the model, but the size is very uncertain. Labelling rules were refined between pools, which could affect this comparison, and this check was not rerun on the corrected base.
 - **Is tone really flat?** Since 2017, yes: framing adds +0.08 of the 2.41-point rise. From 2003–06 to 2024–26 framing appears larger (+1.40 of 2.26 points), but headline length changed over that span, so tone and style can't be separated.
@@ -282,7 +282,7 @@ Since 2017–19 the share of scary NYT headlines rose by about 2.4 points, and h
 
 That rise needs context in two ways. First, it starts from a low. War and disaster were about 18% of NYT headlines in 2003–06, during the Iraq war, and about 13% in 2016–21. The pattern is closer to waves than to a steady climb. Second, part of it is how the NYT publishes: a quick-news desk and a weather desk carry nearly half of the extra scary headlines, and print headlines show a smaller rise.
 
-These data measure coverage, not events. They can't say whether the world became more dangerous, whether newsrooms gave danger more attention, or both. That remains the most important open question.
+These data measure coverage, not events. They can't say whether the world became more dangerous, whether newsrooms gave danger more attention, or both. Outside evidence suggests events are part of it: the Uppsala Conflict Data Program recorded 61 active state-based conflicts in 2024, the most since 1946, although deaths did not set a record (PRIO, 2025). Testing coverage against event data is the most important open question.
 
 ### 7.2 COVID as a spike, not a shift
 
@@ -307,7 +307,7 @@ A scale written from one reader's judgement makes the measure explicit and testa
 - **Individual headlines.** On ordinary news, only about half of headlines the model flags as scary are truly scary. Results are meant for aggregate use.
 - **Subject error.** About one subject in three is wrong. The main conclusion holds with the outlets' own tags, but finer subject comparisons should be read with care.
 - **Scope of fear.** The scale centres on danger to life and safety. Financial panic, such as the 2008 crash, barely registers, so "scary" here does not mean everything people fear.
-- **Post hoc corrections.** The corrected base was chosen after results were seen, and other reasonable bases give a rise of about 1 to 3 points. Model training and sealed tests used the original pools.
+- **Post hoc corrections.** The corrected base was chosen after results were seen, and other reasonable bases give a rise of about 1 to 3 points. Removing blog sites also removed some real reporting (such as The Lede and City Room), which may understate 2007–15 somewhat. Model training and sealed tests used the original pools.
 - **Changing formats.** Longer headlines, web-first publishing and desk reorganisations all affect these measures, and long-run comparisons are the most exposed. Placement and readership were not audited.
 - **Collection artefacts.** January and October 2026 are under-collected at the NYT, 2026 is partial, and the Guardian sample covers only about 12 days a year.
 
@@ -332,6 +332,7 @@ Across 3.35 million headlines, scary news rose after 2017–19 at both the NYT (
 - Kulkarni, R. (2018). *A Million News Headlines* (Version 6.0) \[Data set\]. Harvard Dataverse. https://doi.org/10.7910/DVN/SYBGZL
 - McCombs, M. E., & Shaw, D. L. (1972). The agenda-setting function of mass media. *Public Opinion Quarterly, 36*(2), 176–187.
 - Misra, R. (2022). News Category Dataset. arXiv:2209.11429.
+- PRIO (2025). *Conflict Trends: A Global Overview, 1946–2024*. Peace Research Institute Oslo. https://www.prio.org/publications/14453
 - Reimers, N., & Gurevych, I. (2019). Sentence-BERT: Sentence embeddings using Siamese BERT-networks. *Proceedings of EMNLP-IJCNLP 2019*, 3980–3990.
 - Robertson, C. E., Pröllochs, N., Schwarzenegger, K., Pärnamets, P., Van Bavel, J. J., & Feuerriegel, S. (2023). Negativity drives online news consumption. *Nature Human Behaviour, 7*(5), 812–822.
 - Rozado, D., Hughes, R., & Halberstadt, J. (2022). Longitudinal analysis of sentiment and emotion in news media headlines using automated labelling with Transformer language models. *PLOS ONE, 17*(10), e0276367.

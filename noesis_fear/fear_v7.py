@@ -53,6 +53,6 @@ def appraise(texts):
 def enabled(): return os.environ.get("NOESIS_FEAR_V7", "1") != "0"   # on by default since 25 Oct 2026
 
 if __name__ == "__main__":
-    for t in ["sandy makes landfall and batters us east coast", "ariana grande leads manchester charity concert", "madrid bombing suspects on remand",
+    for t in ["storm makes landfall and batters the east coast", "ariana grande leads manchester charity concert", "madrid bombing suspects on remand",
               "why syrian refugee passport must be treated with caution", "u.n. finds 'minimal' impact from tsunami in myanmar", "50000 jobs at risk as factory closures loom"]:
         r = appraise(t); print(r["fear"], r["fear_range"], "|", r["focus"], r["focus_tier"], r["focus_conf"], "|", t)
