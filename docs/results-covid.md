@@ -7,7 +7,7 @@ Plan (frozen before computing): `PLAN-analysis-covid-2026-10-27.md`. Script: `pi
 - **What kept it high is war and disasters.** In NYT news, about **90% of the rise is agenda** (which subjects get covered), not tone: war/terror went from 7.6% to 12% of headlines (Ukraine 2022, Gaza 2023, Iran 2026), and disasters/accidents from 4.3% to 7.0%. Within each subject, scariness barely changed. The Guardian is similar (about two-thirds agenda).
 - **Opinion pages did not get scarier:** NYT opinion bumped up during COVID, then returned to the pre-COVID level (1.9%).
 - **Alarm-level (3) headlines** rose a little: NYT 1.6% → 2.1%.
-- **The model's absolute level is about right:** on 80 random 2022–26 NYT headlines labelled blind, the true scary share was 6.2%, and the model also said 6.2%.
+- **Correction (3 Nov):** an earlier version cited 80 "random" headlines as proof the overall level was right. Those items excluded keyword matches, so they don't show that. See section 5.4 of the [final report](final-report.md).
 
 ## Main tables
 **Scary share by period** (generic repeats excluded)
@@ -42,7 +42,7 @@ Plan (frozen before computing): `PLAN-analysis-covid-2026-10-27.md`. Script: `pi
 Scary share was 12–14% in 2003–09, fell to about 10.5% in 2012–14, then rose to 14% in 2019, 16% in 2020 and 18% in 2021. ABC data ends in 2021.
 
 ## Caveats
-- One person's scale (U1). The model is somewhat weaker on 2022–26 news (sealed #5: κ .88) than on older news (.93), and tends to call some mild (1) headlines scary (2). The random-80 check suggests the overall share is still about right.
+- One person's scale (U1). The model is somewhat weaker on 2022–26 news (sealed #5: κ .88) than on older news (.93), and tends to call some mild (1) headlines scary (2). See section 5.4 of the [final report](final-report.md) for accuracy on ordinary news.
 - Subjects are about 2 in 3 right (85–91% when confident); the subject conclusions match the outlet-tag check.
 - NYT sport share fell partly because the NYT closed its sports desk in 2023 (agenda artefact, not fear). Jan 2026 NYT is under-collected; 2026 runs to October.
 - Headlines only, not article text; NYT and Guardian only after 2021.

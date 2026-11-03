@@ -1,10 +1,10 @@
 # Fear in the Headlines: Measuring News Fear on a Reader's Own Scale, 2003–2026
 
-Rahheb Shaikh · 27 October 2026 · Final report, project ongoing
+Rahheb Shaikh · Updated 3 November 2026 · Final report, project ongoing
 
 ## Abstract
 
-Did the news become more frightening after COVID-19, and if so, why? We scored 3.35 million headlines from the New York Times (2003–2026), the Guardian (2003–2026) and ABC News Australia (2003–2021) for fear on a 0–3 scale defined by one reader's explicit codebook. A compact sentence model, distilled from a larger teacher trained on about 3,900 labelled headlines, reproduced the reader's levels on unseen sealed test sets with quadratic-weighted κ of .93 (2003–21 news) and .88 (2022–26 news), close to the agreement between two independent labellers (κ .93). The share of scary headlines (level 2 or 3) in NYT news rose from 7.1% in 2017–19 to 10.1% in 2024–26 (+3.0 points, 95% CI 2.7 to 3.3); the Guardian rose by the same amount (+3.0, CI 1.9 to 3.9). COVID produced a temporary spike in frightening health coverage that had faded by 2024. A shift-share decomposition attributes about 90% of the lasting NYT rise to agenda (more coverage of war, terrorism and disasters) rather than to framing (how frightening each subject is made to sound). Opinion pages showed a COVID bump but no lasting rise. We release the method and codebook so the measure can be reused.
+Did the news become more frightening after COVID-19, and if so, why? We scored 3.35 million headlines from the New York Times (2003–2026), the Guardian (2003–2026) and ABC News Australia (2003–2021) for fear on a 0–3 scale defined by one reader's explicit codebook. A compact sentence model, distilled from a larger teacher trained on about 3,900 labelled headlines, reproduced codebook labels on unseen, scary-enriched sealed test sets with quadratic-weighted κ of .93 (2003–21 news) and .88 (2022–26 news), against κ .93 between two separate AI labelling passes. The share of scary headlines (level 2 or 3) in NYT news rose from 7.1% in 2017–19 to 10.1% in 2024–26 (+3.0 points, 95% CI 2.7 to 3.3); the Guardian rose by the same amount (+3.0, CI 1.9 to 3.9). COVID produced a temporary spike in frightening health coverage that had faded by 2024. A shift-share decomposition attributes about 90% of the lasting NYT rise to agenda (more coverage of war, terrorism and disasters) rather than to framing (how frightening each subject is made to sound). War and disaster coverage rose from about 1 in 8 NYT news headlines to about 1 in 5. Change-point analysis, which is exploratory, dates the last sustained step to July 2019, before COVID, and shows the scary share holding near 10% since February 2024, its highest sustained level in the 24-year series. Opinion pages showed a COVID bump but no lasting rise. We release the method and codebook so the measure can be reused.
 
 ## 1 Introduction
 
@@ -23,7 +23,7 @@ Most large-scale studies measure sentiment or general negativity with lexicons o
 ### 1.3 Contributions
 
 - A written four-level fear codebook with tie-break rules, and a labelled corpus of about 3,900 headlines on that scale.
-- An offline, phone-sized fear model (MiniLM, about 90 MB) that matches the scale at near-human agreement on sealed tests, plus a 10-subject classifier sharing the same encoder.
+- An offline, phone-sized fear model (MiniLM, about 90 MB) that matches codebook labels closely on sealed tests, plus a 10-subject classifier sharing the same encoder.
 - A scored analysis of 3.35 million headlines across three outlets and 24 years, and a pre-registered-style analysis of the COVID era with day-clustered uncertainty and a shift-share decomposition.
 
 ## 2 Background
@@ -86,7 +86,8 @@ Headlines that sit between 2 and 3 (a search called off with people presumed dea
 1. **Anchor ratings.** The reader rated 100 headlines by hand. A context check proposed 21 corrections where the reader lacked context (for example, a well-known disaster's death toll); the reader accepted all 21. The codebook was written from these ratings.
 2. **Scale gap.** Generic AI raters scored about 0.44 levels higher than the reader on the same headlines (their 3 matched the reader's 2.2). This is why the model is trained on the reader's scale rather than on generic emotion labels.
 3. **Corpus labels.** Further headlines were labelled with the codebook by an AI labeller (Claude), blind to all model scores, with doubtful cases collected and settled by the reader's rules. The training corpus holds about 3,900 headlines (3,118 train, 782 development, stratified by source and level).
-4. **Reliability.** A second, independent labeller re-rated 150 labelled headlines blind: exact agreement 86%, quadratic-weighted κ .93. Label noise is therefore not the main limit on accuracy.
+4. **Reliability.** A separate AI labelling session, with the same codebook and no memory of the first labels, re-rated 150 headlines: exact agreement 86%, quadratic-weighted κ .93. This shows the rules give consistent answers. It isn't human agreement, and both passes may share blind spots.
+5. **Check against the reader.** On the 20 of the reader's own hand ratings held out of training, the model scored κ .81 and 70% exact, and caught 4 of 7 scary items. The sample is small.
 
 ### 4.3 Model
 
@@ -106,6 +107,7 @@ Each headline also gets one of 10 subjects: war/terror, disaster/accident, crime
 
 - **Sealed test sets.** Each set holds 300 NYT headlines that no model had seen: 150 scary (level 2–3) and 150 calm, half of the calm ones "tricky" (they contain harm words). Candidates were drawn without any model, using a keyword pool plus a random draw. They were labelled blind on the codebook, locked, and opened once. Five sets were used over the project; sets #4 (2003–21) and #5 (2022–26) test the final model.
 - **Frozen plans.** Every training change, gate and comparison was written down before its numbers were computed. A model replaced its predecessor only if it passed the pre-set gates on a sealed set.
+- **Enrichment.** The sets are half scary, while ordinary news is about 10% scary, so these figures don't describe everyday accuracy. Section 5.4 does.
 - **Metrics.** Quadratic-weighted κ against the labels; exact level accuracy, overall and per level; recall and precision of scary headlines; the false-alarm rate on tricky calm headlines; AUC for scary versus calm.
 
 ### 5.2 Results
@@ -128,9 +130,16 @@ The final model (v7e) cuts the exact-level error from 60% to 19% compared with t
 - **Newer news is harder.** Agreement drops from κ .93 to .88 on 2022–26 headlines, plausibly because of new topics (the wars in Ukraine and Gaza, the 2026 Iran war) and newer headline styles.
 - **Two fixes were tried and rejected on sealed #5.** Retraining on 197,000 recent headlines plus 600 new labels (v7f) caught more scary news (91%) but got fewer 1s right (38%). Raising the 1/2 cut-point got more 1s right (66%) but missed more scary news (81%). Neither passed the pre-set bar, so v7e was kept.
 
-### 5.4 Calibration of the overall level
+### 5.4 Accuracy on the ordinary news mix
 
-On the 80 randomly drawn (not keyword-picked) 2022–26 NYT headlines in sealed #5, the true scary share was 6.2% and the model's was also 6.2% (mean level 0.34 true, 0.38 model). The 1-to-2 errors are therefore offset by missed 2s, and absolute shares are approximately right.
+Sealed items were drawn from keyword-matched and non-keyword headlines, so reweighting them by each group's real share of NYT headlines estimates ordinary-news performance. An earlier version of this report treated the non-keyword items alone as a random sample, which was wrong and has been corrected here.
+
+| Pool | True scary share | Model's scary share | Weighted recall | Weighted precision |
+|---|---|---|---|---|
+| Sealed #4 (2003–21) | 3.0% | 5.5% | 96% | 51% |
+| Sealed #5 (2022–26) | 9.3% (95% CI 4.9 to 14.5) | 10.2% | 60% | 55% |
+
+The model's overall share is close to the labels for recent news and too high for older news. So overall shares are usable, but on ordinary news only about half of individually flagged headlines are truly scary. These estimates are rough, because few non-keyword items were scary (5 in sealed #5).
 
 ## 6 Results
 
@@ -193,15 +202,44 @@ ABC's scary share was 12–14% from 2003 to 2009, fell to about 10.5% in 2012–
 
 Every check points the same way. \*Guardian tags are complete only for the threat-tag design, so this check is weaker there; its large interaction term (+4.1) reflects that design.
 
+### 6.7 Key transitions (exploratory)
+
+This analysis was planned after the main results were seen, so it is exploratory. A change-point search on monthly NYT news shares found these periods:
+
+![Scary NYT headlines by month, with detected periods](figures/figure6-transitions.png)
+
+| Period | Scary share | What marks it |
+|---|---|---|
+| Sep 2007 – Oct 2009 | 3.5% | The low. Economy news is 20% of headlines and war only 5.5% |
+| Dec 2010 – May 2011 | 7.9% | A brief spike that fell back to 4.8% within months |
+| Mar 2014 – Jun 2019 | 6.7% | A step up, with disaster headlines getting scarier (29% to 42% scary) |
+| Jul 2019 – Jul 2023 | 8.8% | A step up about eight months before COVID, including its health surge |
+| Aug 2023 – Jan 2024 | 11.8% | The peak: Maui and Gaza. October 2023 is the scariest month at 15.0% |
+| Feb 2024 – Oct 2026 | 10.1% | The plateau, now 33 months long |
+
+The biggest change in coverage is war and disaster together: 11.9% of NYT news headlines in 2017–19 and 19.0% in 2024–26, or 12 a day rising to 18. By the outlets' own tags the rise is steeper, from 8.8% to 20.5%. These two subjects produced 72% of scary headlines in 2024–26, up from 60%.
+
+### 6.8 Checks on the rise (exploratory)
+
+- **Is it just fewer calm headlines?** Mostly not since 2017. Scary headlines rose from 7.4 to 9.8 a day (+33%) while calm ones fell about 8%, so about three-quarters of the rise is more scary headlines. Without sport, whose coverage shrank when the NYT closed its sports desk, the share still rises from 8.0% to 10.6%.
+- **Over the long run, partly yes.** From 2007–09 to 2024–26, calm headlines halved (188 to 86 a day) while scary ones rose about 20%, so most of that rise reflects fewer calm headlines. Earlier archive years may also count different items, so these long comparisons are less reliable.
+- **Does it depend on the model?** Blind labels alone, across all NYT article types, also show a rise, from 4.2% (2017–19, CI 2.5 to 7.3) to 11.0% (2024–26, CI 5.5 to 18.1): +6.7 points, CI 0.3 to 14.4. The direction agrees with the model, but the size is very uncertain. Labelling rules were refined between pools, which could affect this comparison.
+- **Is tone really flat?** Since 2017, yes: framing adds +0.13 of the 2.97-point rise. Over longer spans it matters more. From 2003–06 to 2024–26, framing explains about 44% of the rise, and disaster headlines went from 36% to 49% scary.
+- **Could the shared encoder bias subjects?** Partly. The fear and subject heads use one encoder, and model subjects match outlet tags more often for scary headlines. But the agenda result is stronger, not weaker, when using the tags alone.
+
 ## 7 Discussion
 
 ### 7.1 What changed, and what did not
 
-The news did get more frightening, by about 3 points of headlines (a 40% relative rise at the NYT), and it stayed that way after the pandemic ended. But the tone of coverage within subjects barely moved: a war headline or a disaster headline was about as frightening in 2024–26 as in 2017–19. What changed is the agenda. From 2022 the world produced, and newsrooms covered, more wars (Ukraine, Gaza, the 2026 Iran war) and more large disasters, and those subjects are frightening by nature.
+The share of scary headlines rose by about 3 points (a 40% relative rise at the NYT) and has stayed up since the pandemic ended. Since 2017 the tone of coverage within subjects has barely moved: a war or disaster headline was about as frightening in 2024–26 as in 2017–19. What changed is the mix, with war and disaster rising from about 1 in 8 NYT news headlines to about 1 in 5. Over longer spans tone matters more, especially for disasters (section 6.8).
+
+These data measure coverage, not events. They can't say whether the world became more dangerous, whether newsrooms gave danger more attention, or both. That is the most important open question this work leaves.
+
+Earlier spikes faded: the 2011 spike fell back within months. The current plateau has lasted 33 months, which suggests a new baseline rather than a passing event, although a new shock or a run of quieter events could still move it.
 
 ### 7.2 COVID as a spike, not a shift
 
-COVID-19 raised fear through one subject, health, which both took more space and became more alarming. Both effects reversed by 2024. The lasting rise began in 2019, before the pandemic, and is carried by other subjects. Accounts that blame a post-COVID "anxiety culture" in the press are not supported by these headlines.
+COVID-19 raised fear through one subject, health, which both took more space and became more alarming. Both effects reversed by 2024. The last sustained step came in July 2019, before the pandemic, and the lasting rise is carried by other subjects. Accounts that blame a post-COVID "anxiety culture" in the press are not supported by these headlines.
 
 ### 7.3 News versus opinion
 
@@ -209,15 +247,17 @@ Opinion headlines rose only during COVID and then returned to their pre-COVID le
 
 ### 7.4 Measuring on a reader's scale
 
-A scale written from one reader's judgement makes the measure explicit and testable: anyone can read the codebook, disagree with a rule, and re-label. Generic raters scored about half a level more fearful than our reader, which would inflate absolute levels but, because the bias is roughly constant, should leave trends similar. The model's near-human agreement on sealed sets suggests that a compact, offline model can carry a personal scale reliably.
+A scale written from one reader's judgement makes the measure explicit and testable: anyone can read the codebook, disagree with a rule, and re-label. Generic raters scored about half a level more fearful than our reader, which would inflate absolute levels but, because the bias is roughly constant, should leave trends similar. Agreement on sealed sets suggests a compact, offline model can apply a written scale consistently in aggregate, although individual flags on ordinary news are much less reliable (section 5.4).
 
 ## 8 Limitations
 
 - **One reader's scale.** Levels reflect one person's codebook. Other readers may draw the lines elsewhere; the codebook makes the choices visible but does not make them universal.
-- **AI-assisted labels.** Most corpus labels were produced by an AI labeller following the codebook. Agreement with an independent second labeller was high (κ .93), but both may share systematic blind spots.
+- **AI-assisted labels.** Most corpus labels were produced by an AI labeller following the codebook. The κ .93 consistency check compared two AI sessions, not people, and direct comparison with the reader's own ratings is limited to 20 held-out items.
 - **Headlines only.** Article text, images, placement and reach are not measured, so the results describe what headlines signal, not what readers saw most.
 - **Coverage after 2021.** Only the NYT and the Guardian extend past 2021, and both are English-language, centre-left outlets. Other outlets, and television or social platforms, may differ.
-- **Model error over time.** Accuracy is lower on 2022–26 news (κ .88). Trends assume errors are stable across years; the random-sample calibration check supports this, but on 80 headlines only.
+- **Model error over time.** Accuracy is lower on 2022–26 news (κ .88). Trends assume errors are stable across years. The check in section 5.4 suggests the model overstates older news more than recent news, which would make the true rise larger, but those estimates are rough.
+- **Coverage is not reality.** These data can't separate changes in world events from changes in newsroom attention.
+- **Individual headlines.** On ordinary news, only about half of headlines the model flags as scary are truly scary. Results are meant for aggregate use.
 - **Subject error.** About one subject in three is wrong. The main conclusion holds with the outlets' own tags, but finer subject comparisons should be read with care.
 - **Collection artefacts.** January 2026 is under-collected at the NYT, 2026 is partial, and the NYT's 2023 closure of its sports desk shrinks sport's share for reasons unrelated to fear.
 
@@ -230,7 +270,7 @@ A scale written from one reader's judgement makes the measure explicit and testa
 
 ## 10 Conclusion
 
-Across 3.35 million headlines, scary news rose by about 3 points of all headlines after 2019 at both the NYT and the Guardian, and it has not come down. COVID-19 drove a temporary spike in frightening health news, but the lasting rise comes from what is covered (more war and disaster) rather than from how it is told. A compact model trained on an explicit, personal fear scale measures this at near-human agreement and runs offline, which makes the same measure usable for readers who want to track the fear in their own news diet.
+Across 3.35 million headlines, scary news rose by about 3 points of all headlines after 2019 at both the NYT and the Guardian, and it has not come down. COVID-19 drove a temporary spike in frightening health news, but the lasting rise comes from what is covered (more war and disaster) rather than from how it is told. War and disaster went from about 1 in 8 NYT news headlines to about 1 in 5, and the scary share has held near 10% for 33 months, its highest sustained level in 24 years of data. Whether that reflects a more dangerous world or more attention to danger is the next question. A compact offline model trained on an explicit fear scale can track this in aggregate, which could let readers monitor the fear in their own news diet.
 
 ## References
 
@@ -239,18 +279,18 @@ Across 3.35 million headlines, scary news rose by about 3 points of all headline
 - Entman, R. M. (1993). Framing: Toward clarification of a fractured paradigm. *Journal of Communication, 43*(4), 51–58.
 - Gerbner, G., & Gross, L. (1976). Living with television: The violence profile. *Journal of Communication, 26*(2), 172–199.
 - Hinton, G., Vinyals, O., & Dean, J. (2015). Distilling the knowledge in a neural network. arXiv:1503.02531.
-- Kulkarni, R. (2018). *A Million News Headlines* \[Data set\]. Kaggle.
+- Kulkarni, R. (2018). *A Million News Headlines* (Version 6.0) \[Data set\]. Harvard Dataverse. https://doi.org/10.7910/DVN/SYBGZL
 - McCombs, M. E., & Shaw, D. L. (1972). The agenda-setting function of mass media. *Public Opinion Quarterly, 36*(2), 176–187.
 - Misra, R. (2022). News Category Dataset. arXiv:2209.11429.
-- Reimers, N., & Gurevych, I. (2019). Sentence-BERT: Sentence embeddings using Siamese BERT-networks. *Proceedings of EMNLP-IJCNLP 2019*.
-- Robertson, C. E., Pröllochs, N., Schwarzenegger, K., Pärnamets, P., Van Bavel, J. J., & Feuerriegel, S. (2023). Negativity drives online news consumption. *Nature Human Behaviour, 7*, 812–822.
+- Reimers, N., & Gurevych, I. (2019). Sentence-BERT: Sentence embeddings using Siamese BERT-networks. *Proceedings of EMNLP-IJCNLP 2019*, 3980–3990.
+- Robertson, C. E., Pröllochs, N., Schwarzenegger, K., Pärnamets, P., Van Bavel, J. J., & Feuerriegel, S. (2023). Negativity drives online news consumption. *Nature Human Behaviour, 7*(5), 812–822.
 - Rozado, D., Hughes, R., & Halberstadt, J. (2022). Longitudinal analysis of sentiment and emotion in news media headlines using automated labelling with Transformer language models. *PLOS ONE, 17*(10), e0276367.
 - Song, K., Tan, X., Qin, T., Lu, J., & Liu, T.-Y. (2020). MPNet: Masked and permuted pre-training for language understanding. *Advances in Neural Information Processing Systems 33*.
 - Soroka, S., & McAdams, S. (2015). News, politics, and negativity. *Political Communication, 32*(1), 1–22.
 - Trussler, M., & Soroka, S. (2014). Consumer demand for cynical and negative news frames. *The International Journal of Press/Politics, 19*(3), 360–379.
 - Wang, W., Wei, F., Dong, L., Bao, H., Yang, N., & Zhou, M. (2020). MiniLM: Deep self-attention distillation for task-agnostic compression of pre-trained Transformers. *Advances in Neural Information Processing Systems 33*.
 
-Data services: The New York Times Archive API; The Guardian Open Platform (Content API). Reference details were compiled from memory and should be checked against the original publications before submission.
+Data services: The New York Times Archive API; The Guardian Open Platform (Content API). Reference details were checked against Crossref, arXiv and DataCite on 3 November 2026.
 
 ## Appendix A: Codebook rules in full
 
@@ -278,6 +318,6 @@ Data services: The New York Times Archive API; The Guardian Open Platform (Conte
 1. **Collection:** `outlets_fetch.py`, `guardian_targeted.py`, `recent_fetch.py` (APIs, cached and resumable).
 2. **Labels and tests:** `prep_scary_test*.py` (sealed pools), `prep_v7f_data.py`, `build_u1_corpus.py`.
 3. **Models:** `train_v12.py` (teacher), `build_fear_v7e.py` (student), `build_subject.py` and `build_subject_rules.py` (subjects).
-4. **Scoring and analysis:** `score_all_v7e.py` (3.35 million rows), `analysis_covid.py` (frozen plan, 1,000 day-cluster bootstrap resamples, seed 0).
+4. **Scoring and analysis:** `score_all_v7e.py` (3.35 million rows), `analysis_covid.py` (frozen plan, 1,000 day-cluster bootstrap resamples, seed 0), `analysis_transitions.py` and `analysis_transitions2.py` (exploratory).
 
 The production model runs on CPU with no network access; scoring all 3.35 million headlines took 16 minutes on a laptop.

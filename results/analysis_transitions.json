@@ -1,0 +1,920 @@
+{
+ "T1": [
+  {
+   "year": 2003,
+   "n": 62360,
+   "days": 365,
+   "scary": 0.0732,
+   "alarm": 0.0165,
+   "sc": 4567,
+   "per_day": 12.5123,
+   "n_day": 170.8493
+  },
+  {
+   "year": 2004,
+   "n": 62121,
+   "days": 366,
+   "scary": 0.0668,
+   "alarm": 0.0176,
+   "sc": 4150,
+   "per_day": 11.3388,
+   "n_day": 169.7295
+  },
+  {
+   "year": 2005,
+   "n": 75599,
+   "days": 365,
+   "scary": 0.0765,
+   "alarm": 0.0221,
+   "sc": 5787,
+   "per_day": 15.8548,
+   "n_day": 207.1205
+  },
+  {
+   "year": 2006,
+   "n": 106915,
+   "days": 365,
+   "scary": 0.0678,
+   "alarm": 0.0186,
+   "sc": 7252,
+   "per_day": 19.8685,
+   "n_day": 292.9178
+  },
+  {
+   "year": 2007,
+   "n": 71325,
+   "days": 365,
+   "scary": 0.0475,
+   "alarm": 0.0126,
+   "sc": 3391,
+   "per_day": 9.2904,
+   "n_day": 195.411
+  },
+  {
+   "year": 2008,
+   "n": 83606,
+   "days": 366,
+   "scary": 0.0344,
+   "alarm": 0.008,
+   "sc": 2876,
+   "per_day": 7.8579,
+   "n_day": 228.4317
+  },
+  {
+   "year": 2009,
+   "n": 76380,
+   "days": 365,
+   "scary": 0.0357,
+   "alarm": 0.0083,
+   "sc": 2725,
+   "per_day": 7.4658,
+   "n_day": 209.2603
+  },
+  {
+   "year": 2010,
+   "n": 40770,
+   "days": 365,
+   "scary": 0.0565,
+   "alarm": 0.0127,
+   "sc": 2302,
+   "per_day": 6.3068,
+   "n_day": 111.6986
+  },
+  {
+   "year": 2011,
+   "n": 57983,
+   "days": 365,
+   "scary": 0.0551,
+   "alarm": 0.0102,
+   "sc": 3193,
+   "per_day": 8.7479,
+   "n_day": 158.8575
+  },
+  {
+   "year": 2012,
+   "n": 74437,
+   "days": 366,
+   "scary": 0.0438,
+   "alarm": 0.0078,
+   "sc": 3262,
+   "per_day": 8.9126,
+   "n_day": 203.3798
+  },
+  {
+   "year": 2013,
+   "n": 62229,
+   "days": 365,
+   "scary": 0.0528,
+   "alarm": 0.011,
+   "sc": 3286,
+   "per_day": 9.0027,
+   "n_day": 170.4904
+  },
+  {
+   "year": 2014,
+   "n": 60334,
+   "days": 365,
+   "scary": 0.0613,
+   "alarm": 0.0115,
+   "sc": 3700,
+   "per_day": 10.137,
+   "n_day": 165.2986
+  },
+  {
+   "year": 2015,
+   "n": 53732,
+   "days": 365,
+   "scary": 0.0674,
+   "alarm": 0.0146,
+   "sc": 3624,
+   "per_day": 9.9288,
+   "n_day": 147.211
+  },
+  {
+   "year": 2016,
+   "n": 45991,
+   "days": 366,
+   "scary": 0.0655,
+   "alarm": 0.0143,
+   "sc": 3013,
+   "per_day": 8.2322,
+   "n_day": 125.6585
+  },
+  {
+   "year": 2017,
+   "n": 39265,
+   "days": 365,
+   "scary": 0.0676,
+   "alarm": 0.015,
+   "sc": 2654,
+   "per_day": 7.2712,
+   "n_day": 107.5753
+  },
+  {
+   "year": 2018,
+   "n": 37699,
+   "days": 365,
+   "scary": 0.0689,
+   "alarm": 0.0166,
+   "sc": 2599,
+   "per_day": 7.1205,
+   "n_day": 103.2849
+  },
+  {
+   "year": 2019,
+   "n": 36515,
+   "days": 364,
+   "scary": 0.0768,
+   "alarm": 0.0167,
+   "sc": 2805,
+   "per_day": 7.706,
+   "n_day": 100.3159
+  },
+  {
+   "year": 2020,
+   "n": 38758,
+   "days": 366,
+   "scary": 0.0837,
+   "alarm": 0.0136,
+   "sc": 3245,
+   "per_day": 8.8661,
+   "n_day": 105.8962
+  },
+  {
+   "year": 2021,
+   "n": 36271,
+   "days": 365,
+   "scary": 0.0906,
+   "alarm": 0.0158,
+   "sc": 3285,
+   "per_day": 9.0,
+   "n_day": 99.3726
+  },
+  {
+   "year": 2022,
+   "n": 33646,
+   "days": 365,
+   "scary": 0.0952,
+   "alarm": 0.0172,
+   "sc": 3203,
+   "per_day": 8.7753,
+   "n_day": 92.1808
+  },
+  {
+   "year": 2023,
+   "n": 30933,
+   "days": 365,
+   "scary": 0.1024,
+   "alarm": 0.023,
+   "sc": 3168,
+   "per_day": 8.6795,
+   "n_day": 84.7479
+  },
+  {
+   "year": 2024,
+   "n": 34751,
+   "days": 366,
+   "scary": 0.1007,
+   "alarm": 0.0212,
+   "sc": 3499,
+   "per_day": 9.5601,
+   "n_day": 94.9481
+  },
+  {
+   "year": 2025,
+   "n": 35505,
+   "days": 365,
+   "scary": 0.0988,
+   "alarm": 0.0213,
+   "sc": 3507,
+   "per_day": 9.6082,
+   "n_day": 97.274
+  },
+  {
+   "year": 2026,
+   "n": 25776,
+   "days": 253,
+   "scary": 0.1034,
+   "alarm": 0.0212,
+   "sc": 2666,
+   "per_day": 10.5375,
+   "n_day": 101.8814
+  }
+ ],
+ "segments": [
+  {
+   "start": "2003-01",
+   "end": "2006-08",
+   "scary": 0.0727,
+   "alarm": 0.0193,
+   "per_day": 14.57,
+   "n_day": 200.5,
+   "sh_crime_j": 0.074,
+   "sh_culture": 0.169,
+   "sh_disaste": 0.049,
+   "sh_economy": 0.18,
+   "sh_environ": 0.033,
+   "sh_health": 0.057,
+   "sh_politic": 0.086,
+   "sh_science": 0.095,
+   "sh_sport": 0.144,
+   "sh_war_ter": 0.113,
+   "sc_war_ter": 0.277,
+   "sc_disaste": 0.354,
+   "sc_crime_j": 0.234,
+   "sc_health": 0.062
+  },
+  {
+   "start": "2006-09",
+   "end": "2007-08",
+   "scary": 0.0547,
+   "alarm": 0.0149,
+   "per_day": 12.59,
+   "n_day": 230.0,
+   "sh_crime_j": 0.066,
+   "sh_culture": 0.177,
+   "sh_disaste": 0.037,
+   "sh_economy": 0.184,
+   "sh_environ": 0.032,
+   "sh_health": 0.059,
+   "sh_politic": 0.092,
+   "sh_science": 0.111,
+   "sh_sport": 0.157,
+   "sh_war_ter": 0.084,
+   "sc_war_ter": 0.275,
+   "sc_disaste": 0.334,
+   "sc_crime_j": 0.227,
+   "sc_health": 0.036
+  },
+  {
+   "start": "2007-09",
+   "end": "2009-10",
+   "scary": 0.0351,
+   "alarm": 0.0083,
+   "per_day": 7.92,
+   "n_day": 225.6,
+   "sh_crime_j": 0.047,
+   "sh_culture": 0.199,
+   "sh_disaste": 0.032,
+   "sh_economy": 0.195,
+   "sh_environ": 0.036,
+   "sh_health": 0.061,
+   "sh_politic": 0.097,
+   "sh_science": 0.112,
+   "sh_sport": 0.167,
+   "sh_war_ter": 0.055,
+   "sc_war_ter": 0.243,
+   "sc_disaste": 0.273,
+   "sc_crime_j": 0.177,
+   "sc_health": 0.036
+  },
+  {
+   "start": "2009-11",
+   "end": "2010-11",
+   "scary": 0.0553,
+   "alarm": 0.0125,
+   "per_day": 6.31,
+   "n_day": 114.0,
+   "sh_crime_j": 0.062,
+   "sh_culture": 0.223,
+   "sh_disaste": 0.042,
+   "sh_economy": 0.149,
+   "sh_environ": 0.032,
+   "sh_health": 0.065,
+   "sh_politic": 0.084,
+   "sh_science": 0.097,
+   "sh_sport": 0.167,
+   "sh_war_ter": 0.079,
+   "sc_war_ter": 0.289,
+   "sc_disaste": 0.336,
+   "sc_crime_j": 0.2,
+   "sc_health": 0.043
+  },
+  {
+   "start": "2010-12",
+   "end": "2011-05",
+   "scary": 0.0789,
+   "alarm": 0.0154,
+   "per_day": 7.91,
+   "n_day": 100.2,
+   "sh_crime_j": 0.069,
+   "sh_culture": 0.177,
+   "sh_disaste": 0.051,
+   "sh_economy": 0.136,
+   "sh_environ": 0.033,
+   "sh_health": 0.065,
+   "sh_politic": 0.086,
+   "sh_science": 0.098,
+   "sh_sport": 0.173,
+   "sh_war_ter": 0.112,
+   "sc_war_ter": 0.357,
+   "sc_disaste": 0.384,
+   "sc_crime_j": 0.195,
+   "sc_health": 0.036
+  },
+  {
+   "start": "2011-06",
+   "end": "2014-02",
+   "scary": 0.0475,
+   "alarm": 0.0091,
+   "per_day": 8.97,
+   "n_day": 188.7,
+   "sh_crime_j": 0.055,
+   "sh_culture": 0.234,
+   "sh_disaste": 0.035,
+   "sh_economy": 0.143,
+   "sh_environ": 0.032,
+   "sh_health": 0.063,
+   "sh_politic": 0.092,
+   "sh_science": 0.117,
+   "sh_sport": 0.16,
+   "sh_war_ter": 0.068,
+   "sc_war_ter": 0.319,
+   "sc_disaste": 0.294,
+   "sc_crime_j": 0.195,
+   "sc_health": 0.029
+  },
+  {
+   "start": "2014-03",
+   "end": "2019-06",
+   "scary": 0.0669,
+   "alarm": 0.0144,
+   "per_day": 8.42,
+   "n_day": 125.9,
+   "sh_crime_j": 0.073,
+   "sh_culture": 0.263,
+   "sh_disaste": 0.037,
+   "sh_economy": 0.108,
+   "sh_environ": 0.031,
+   "sh_health": 0.06,
+   "sh_politic": 0.136,
+   "sh_science": 0.09,
+   "sh_sport": 0.126,
+   "sh_war_ter": 0.077,
+   "sc_war_ter": 0.338,
+   "sc_disaste": 0.418,
+   "sc_crime_j": 0.248,
+   "sc_health": 0.066
+  },
+  {
+   "start": "2019-07",
+   "end": "2023-07",
+   "scary": 0.0883,
+   "alarm": 0.0166,
+   "per_day": 8.58,
+   "n_day": 97.1,
+   "sh_crime_j": 0.079,
+   "sh_culture": 0.222,
+   "sh_disaste": 0.051,
+   "sh_economy": 0.086,
+   "sh_environ": 0.036,
+   "sh_health": 0.118,
+   "sh_politic": 0.136,
+   "sh_science": 0.087,
+   "sh_sport": 0.101,
+   "sh_war_ter": 0.083,
+   "sc_war_ter": 0.289,
+   "sc_disaste": 0.461,
+   "sc_crime_j": 0.257,
+   "sc_health": 0.132
+  },
+  {
+   "start": "2023-08",
+   "end": "2024-01",
+   "scary": 0.1184,
+   "alarm": 0.0238,
+   "per_day": 10.15,
+   "n_day": 85.7,
+   "sh_crime_j": 0.09,
+   "sh_culture": 0.232,
+   "sh_disaste": 0.068,
+   "sh_economy": 0.085,
+   "sh_environ": 0.045,
+   "sh_health": 0.061,
+   "sh_politic": 0.139,
+   "sh_science": 0.089,
+   "sh_sport": 0.06,
+   "sh_war_ter": 0.132,
+   "sc_war_ter": 0.426,
+   "sc_disaste": 0.488,
+   "sc_crime_j": 0.228,
+   "sc_health": 0.075
+  },
+  {
+   "start": "2024-02",
+   "end": "2026-10",
+   "scary": 0.1005,
+   "alarm": 0.0212,
+   "per_day": 9.84,
+   "n_day": 97.9,
+   "sh_crime_j": 0.087,
+   "sh_culture": 0.227,
+   "sh_disaste": 0.069,
+   "sh_economy": 0.085,
+   "sh_environ": 0.038,
+   "sh_health": 0.057,
+   "sh_politic": 0.179,
+   "sh_science": 0.088,
+   "sh_sport": 0.048,
+   "sh_war_ter": 0.12,
+   "sc_war_ter": 0.315,
+   "sc_disaste": 0.49,
+   "sc_crime_j": 0.226,
+   "sc_health": 0.078
+  }
+ ],
+ "top_months": [
+  {
+   "month": "2023-10",
+   "scary": 0.1497,
+   "top_subject": "war_terror",
+   "words": [
+    "israel-hamas",
+    "israel-gaza",
+    "hostages",
+    "hamas",
+    "invasion",
+    "gaza"
+   ]
+  },
+  {
+   "month": "2021-08",
+   "scary": 0.1408,
+   "top_subject": "war_terror",
+   "words": [
+    "kabul",
+    "dixie",
+    "evacuations",
+    "ravage",
+    "evacuation",
+    "taliban"
+   ]
+  },
+  {
+   "month": "2026-07",
+   "scary": 0.1305,
+   "top_subject": "disaster_accident",
+   "words": [
+    "wildfire",
+    "wildfires",
+    "smoke",
+    "evacuations",
+    "outbreak",
+    "deadly"
+   ]
+  },
+  {
+   "month": "2026-03",
+   "scary": 0.129,
+   "top_subject": "war_terror",
+   "words": [
+    "laguardia",
+    "hormuz",
+    "strait",
+    "synagogue",
+    "iranian",
+    "iranians"
+   ]
+  },
+  {
+   "month": "2024-09",
+   "scary": 0.1285,
+   "top_subject": "war_terror",
+   "words": [
+    "yagi",
+    "helene",
+    "pager",
+    "francine",
+    "hezbollah",
+    "beirut"
+   ]
+  },
+  {
+   "month": "2023-11",
+   "scary": 0.1263,
+   "top_subject": "war_terror",
+   "words": [
+    "al-shifa",
+    "hostages",
+    "gaza",
+    "hamas",
+    "hospital",
+    "hostage"
+   ]
+  },
+  {
+   "month": "2025-07",
+   "scary": 0.1257,
+   "top_subject": "disaster_accident",
+   "words": [
+    "starvation",
+    "floods",
+    "flooding",
+    "wildfire",
+    "heavy",
+    "deadly"
+   ]
+  },
+  {
+   "month": "2026-01",
+   "scary": 0.1226,
+   "top_subject": "disaster_accident",
+   "words": [
+    "swiss",
+    "venezuela",
+    "fire",
+    "guard",
+    "strikes",
+    "deadly"
+   ]
+  },
+  {
+   "month": "2023-08",
+   "scary": 0.1225,
+   "top_subject": "disaster_accident",
+   "words": [
+    "maui",
+    "idalia",
+    "lahaina",
+    "wildfires",
+    "wildfire",
+    "tropical"
+   ]
+  },
+  {
+   "month": "2024-12",
+   "scary": 0.1178,
+   "top_subject": "war_terror",
+   "words": [
+    "assad",
+    "al-assad",
+    "malibu",
+    "syria",
+    "rebels",
+    "syrians"
+   ]
+  }
+ ],
+ "V1": {
+  "2017-19": {
+   "n_day": 103.7,
+   "scary_day": 7.37,
+   "share": 0.071,
+   "no_sport": 0.0797,
+   "no_sport_culture": 0.1134,
+   "notscary_day": 96.4
+  },
+  "2020-21": {
+   "n_day": 102.6,
+   "scary_day": 8.93,
+   "share": 0.087,
+   "no_sport": 0.0958,
+   "no_sport_culture": 0.125,
+   "notscary_day": 93.7
+  },
+  "2022-23": {
+   "n_day": 88.5,
+   "scary_day": 8.73,
+   "share": 0.0987,
+   "no_sport": 0.1087,
+   "no_sport_culture": 0.1443,
+   "notscary_day": 79.7
+  },
+  "2024-26": {
+   "n_day": 97.6,
+   "scary_day": 9.83,
+   "share": 0.1007,
+   "no_sport": 0.1057,
+   "no_sport_culture": 0.1383,
+   "notscary_day": 87.8
+  }
+ },
+ "V2": {
+  "tag_coverage": [
+   0.864,
+   0.874
+  ],
+  "by_tag": {
+   "total": 0.0339,
+   "agenda": 0.0476,
+   "framing": -0.0054,
+   "inter": -0.0083,
+   "tag_share": [
+    [
+     0.069,
+     0.078
+    ],
+    [
+     0.347,
+     0.303
+    ],
+    [
+     0.034,
+     0.064
+    ],
+    [
+     0.133,
+     0.12
+    ],
+    [
+     0.023,
+     0.027
+    ],
+    [
+     0.054,
+     0.059
+    ],
+    [
+     0.15,
+     0.165
+    ],
+    [
+     0.041,
+     0.041
+    ],
+    [
+     0.095,
+     0.002
+    ],
+    [
+     0.054,
+     0.14
+    ]
+   ],
+   "tag_scary": [
+    [
+     0.273,
+     0.222
+    ],
+    [
+     0.007,
+     0.007
+    ],
+    [
+     0.453,
+     0.458
+    ],
+    [
+     0.017,
+     0.019
+    ],
+    [
+     0.034,
+     0.022
+    ],
+    [
+     0.071,
+     0.082
+    ],
+    [
+     0.042,
+     0.029
+    ],
+    [
+     0.019,
+     0.022
+    ],
+    [
+     0.007,
+     0.033
+    ],
+    [
+     0.362,
+     0.301
+    ]
+   ],
+   "tags": [
+    "crime_justice",
+    "culture_lifestyle",
+    "disaster_accident",
+    "economy",
+    "environment",
+    "health",
+    "politics",
+    "science_tech",
+    "sport",
+    "war_terror"
+   ]
+  },
+  "by_model_same_rows": {
+   "total": 0.0339,
+   "agenda": 0.0306,
+   "framing": 0.0019,
+   "inter": 0.0014,
+   "tag_share": [
+    [
+     0.078,
+     0.086
+    ],
+    [
+     0.261,
+     0.225
+    ],
+    [
+     0.041,
+     0.068
+    ],
+    [
+     0.095,
+     0.089
+    ],
+    [
+     0.032,
+     0.039
+    ],
+    [
+     0.058,
+     0.056
+    ],
+    [
+     0.155,
+     0.184
+    ],
+    [
+     0.083,
+     0.085
+    ],
+    [
+     0.123,
+     0.042
+    ],
+    [
+     0.074,
+     0.125
+    ]
+   ],
+   "tag_scary": [
+    [
+     0.267,
+     0.235
+    ],
+    [
+     0.001,
+     0.001
+    ],
+    [
+     0.467,
+     0.52
+    ],
+    [
+     0.009,
+     0.012
+    ],
+    [
+     0.014,
+     0.02
+    ],
+    [
+     0.056,
+     0.08
+    ],
+    [
+     0.012,
+     0.009
+    ],
+    [
+     0.006,
+     0.007
+    ],
+    [
+     0.003,
+     0.003
+    ],
+    [
+     0.315,
+     0.323
+    ]
+   ],
+   "tags": [
+    "crime_justice",
+    "culture_lifestyle",
+    "disaster_accident",
+    "economy",
+    "environment",
+    "health",
+    "politics",
+    "science_tech",
+    "sport",
+    "war_terror"
+   ]
+  },
+  "scary_subject_agree": {
+   "pre": 0.693,
+   "recent": 0.786
+  },
+  "calm_subject_agree": {
+   "pre": 0.624,
+   "recent": 0.598
+  }
+ },
+ "V3": {
+  "sealed4_2003_21": {
+   "n": 100,
+   "kappa": 0.785,
+   "exact": 0.92,
+   "true_scary": 0.01,
+   "model_scary": 0.03,
+   "n_true_scary": 1,
+   "recall": 1.0,
+   "precision": 0.333,
+   "kappa_ci": [
+    0.364,
+    0.924
+   ]
+  },
+  "sealed5_2022_26": {
+   "n": 80,
+   "kappa": 0.827,
+   "exact": 0.9,
+   "true_scary": 0.062,
+   "model_scary": 0.062,
+   "n_true_scary": 5,
+   "recall": 0.4,
+   "precision": 0.4,
+   "kappa_ci": [
+    0.642,
+    0.942
+   ]
+  },
+  "all": {
+   "n": 180,
+   "kappa": 0.818,
+   "exact": 0.911,
+   "true_scary": 0.033,
+   "model_scary": 0.044,
+   "n_true_scary": 6,
+   "recall": 0.5,
+   "precision": 0.375,
+   "kappa_ci": [
+    0.681,
+    0.909
+   ]
+  }
+ },
+ "guardian_year": {
+  "2003": 0.0395,
+  "2004": 0.0447,
+  "2005": 0.0366,
+  "2006": 0.0322,
+  "2007": 0.0383,
+  "2008": 0.0396,
+  "2009": 0.0408,
+  "2010": 0.0396,
+  "2011": 0.0457,
+  "2012": 0.0468,
+  "2013": 0.0503,
+  "2014": 0.0496,
+  "2015": 0.0611,
+  "2016": 0.0523,
+  "2017": 0.0585,
+  "2018": 0.0577,
+  "2019": 0.0614,
+  "2020": 0.114,
+  "2021": 0.0881,
+  "2022": 0.087,
+  "2023": 0.0862,
+  "2024": 0.0926,
+  "2025": 0.0816,
+  "2026": 0.0933
+ }
+}
