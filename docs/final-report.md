@@ -142,6 +142,8 @@ All analyses follow a plan frozen before any number was computed. Periods are fi
 
 At the NYT the rise begins in 2019 and continues steadily through COVID, then levels off at about 10% from 2023. The Guardian jumps in 2020 and settles about 3 points above its pre-COVID level. ABC, whose data end in 2021, rises from 2017 onward. Each outlet has its own baseline, so changes, not levels, are compared.
 
+A daily view shows why this can feel constant. In 2024–26, NYT news carried at least one scary headline on 100% of the 984 days with data, averaging 9.8 a day (median 9), up from 7.4 a day in 2017–19 (99.8% of days). About 90% of its news headlines were still not scary. This daily view was computed after the frozen plan and is descriptive only.
+
 ### 6.2 Before, during and after COVID
 
 | Sample | Pre-COVID 2017–19 | COVID 2020–21 | After 2022–23 | Recent 2024–26 | Recent minus pre (95% CI) |
@@ -222,7 +224,7 @@ A scale written from one reader's judgement makes the measure explicit and testa
 ## 9 Ethics, data and code availability
 
 - **Data.** Only published headlines and outlet metadata were used, collected through official APIs within their terms or from openly licensed datasets. No personal data and no social-media posts were collected.
-- **Redistribution.** NYT and Guardian headline text is subject to their API terms; this repository shares code, the codebook and aggregate results, not headline text or per-headline scores, and the headlines can be re-fetched from the same APIs. ABC and HuffPost datasets are public.
+- **Redistribution.** NYT and Guardian headline text is subject to their API terms; this repository shares code, the codebook and aggregate results, and NYT and Guardian headlines can be re-fetched from the same APIs. Other cleaned data, scores and labels are available on request (see `DATA_ACCESS.md`). ABC and HuffPost datasets are public.
 - **Labelling.** No crowd workers were used. The reader's own ratings anchor the scale; AI-assisted labels are disclosed above.
 - **Intended use.** The measure describes coverage. It should not be used to rank or penalise individual journalists or articles.
 

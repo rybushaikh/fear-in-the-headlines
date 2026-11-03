@@ -5,6 +5,8 @@
 !/.env.example
 !/README.md
 !/LICENSE
+!/LICENSE-DOCS.md
+!/DATA_ACCESS.md
 !/SECURITY.md
 !/requirements.txt
 !/pipeline/*.py
@@ -12,6 +14,7 @@
 !/noesis_fear/models/fear_v7/*.json
 !/docs/**/*.md
 !/docs/figures/*.png
+!/docs/final-report.pdf
 !/results/*.json
 !/.github/**/*.yml
 # Never, even if an allow rule above would match

@@ -1,0 +1,36 @@
+name: Data request
+description: Ask for permission to use the cleaned data
+title: "[Data request] "
+labels: ["data-request"]
+body:
+  - type: markdown
+    attributes:
+      value: "Issues are public, so don't include private information. Read [DATA_ACCESS.md](../blob/main/DATA_ACCESS.md) first."
+  - type: input
+    id: who
+    attributes:
+      label: Who are you?
+      description: Your name and organisation, if any
+    validations:
+      required: true
+  - type: textarea
+    id: use
+    attributes:
+      label: What will you use the data for?
+    validations:
+      required: true
+  - type: checkboxes
+    id: data
+    attributes:
+      label: Which data do you need?
+      options:
+        - label: ABC and HuffPost headline text, cleaned
+        - label: Fear scores, levels and subjects
+        - label: Labels on the fear scale
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Terms
+      options:
+        - label: I'll use the data only for the purpose above, won't pass it on without permission, and will credit this project.
+          required: true

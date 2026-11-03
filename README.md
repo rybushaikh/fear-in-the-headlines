@@ -9,13 +9,14 @@
 ## What we found
 
 - **Scary headlines rose and stayed up.** NYT news went from 7.1% (2017–19) to 10.1% (2024–26), +3.0 points (95% CI 2.7 to 3.3). The Guardian also rose 3.0 points, from 5.9% to 8.9% (CI 1.9 to 3.9).
+- **It really is daily.** In 2024–26, NYT news carried scary headlines on 100% of days with data, about 10 a day, yet about 90% of its headlines weren't scary.
 - **COVID was a spike.** Health news surged in 2020–21, then returned to normal by 2024.
 - **War and disasters drive the lasting rise.** About 90% of the NYT rise comes from what gets covered, not how it's told. In the Guardian it's about two-thirds.
 - **Opinion pages had no lasting rise.**
 
 ![What drove the rise in scary NYT headlines](docs/figures/figure2-nyt-rise-bridge.png)
 
-"Scary" means level 2 or 3 on the [fear scale](docs/codebook.md). Read the full **[final report](docs/final-report.md)**: method, results, discussion, limitations, references and appendices.
+"Scary" means level 2 or 3 on the [fear scale](docs/codebook.md). Read the full **[final report](docs/final-report.md)** ([PDF](docs/final-report.pdf)): method, results, discussion, limitations, references and appendices.
 
 ## How well the model works
 
@@ -52,7 +53,7 @@ Two independent labellers agreed at κ .93. The weakest level is mild news (leve
 
 ## What's not included, and what that means
 
-- **Headline text, labels and per-headline scores** are left out, to respect the outlets' terms.
+- **Headline text, labels and per-headline scores** are left out. Some of this data is available on request: see [DATA_ACCESS.md](DATA_ACCESS.md).
 - **The encoder weights (88 MB)** aren't published yet, so `noesis_fear` can't score text on its own.
 
 So you can read the method, inspect the code and check the aggregate results, but you can't re-run training or scoring from this repo alone. Scripts expect local data under `data/`. To collect headlines, copy `.env.example` to `.env` and add your own NYT and Guardian API keys.
@@ -63,4 +64,4 @@ One reader's scale. Headlines only. Most labels came from an AI labeller followi
 
 ## Data sources and licence
 
-NYT Archive API, Guardian Content API, [A Million News Headlines](https://www.kaggle.com/datasets/therohk/million-headlines) (ABC) and [News Category Dataset](https://www.kaggle.com/datasets/rmisra/news-category-dataset) (HuffPost, CC BY 4.0). Code is under the [MIT licence](LICENSE), which doesn't cover third-party data. See [SECURITY.md](SECURITY.md) to report a security issue.
+NYT Archive API, Guardian Content API, [A Million News Headlines](https://www.kaggle.com/datasets/therohk/million-headlines) (ABC) and [News Category Dataset](https://www.kaggle.com/datasets/rmisra/news-category-dataset) (HuffPost, CC BY 4.0). Code is under the [MIT licence](LICENSE), and the report, docs and figures are under [CC BY 4.0](LICENSE-DOCS.md), so you can reuse them with credit. Neither covers third-party data, and the cleaned data needs [permission](DATA_ACCESS.md). See [SECURITY.md](SECURITY.md) to report a security issue.
