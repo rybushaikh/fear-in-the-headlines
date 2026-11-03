@@ -2,7 +2,7 @@
 
 **Is the news getting scarier, and why?** This project scores 3.35 million headlines (NYT, Guardian, ABC Australia, 2003–2026) for fear with a small model trained on one reader's written fear scale.
 
-> **Status: ongoing.** This is a working paper and research code, not a finished product.
+> **Status: ongoing.** This is research code and a report on the work so far, not a finished product.
 
 ![Share of scary headlines by year](docs/figures/figure1-scary-share-by-year.png)
 
@@ -15,7 +15,7 @@
 
 ![What drove the rise in scary NYT headlines](docs/figures/figure2-nyt-rise-bridge.png)
 
-"Scary" means level 2 or 3 on the [fear scale](docs/codebook.md). Start with the **[final report](docs/final-report.md)**, or read the [working paper](docs/paper.md) for the full method.
+"Scary" means level 2 or 3 on the [fear scale](docs/codebook.md). Read the full **[final report](docs/final-report.md)**: method, results, discussion, limitations, references and appendices.
 
 ## How well the model works
 
@@ -32,8 +32,7 @@ Two independent labellers agreed at κ .93. The weakest level is mild news (leve
 
 | Path | Contents |
 |---|---|
-| [`docs/final-report.md`](docs/final-report.md) | What we accomplished, the findings and what's next |
-| [`docs/paper.md`](docs/paper.md) | Working paper |
+| [`docs/final-report.md`](docs/final-report.md) | The full final report |
 | [`docs/results-covid.md`](docs/results-covid.md) | Detailed results tables for the COVID-era analysis |
 | [`docs/codebook.md`](docs/codebook.md) | The fear scale and its rules |
 | [`docs/plans/`](docs/plans) | Plans written before results were computed, with their outcomes |
@@ -60,7 +59,7 @@ So you can read the method, inspect the code and check the aggregate results, bu
 
 ## Limits
 
-One reader's scale. Headlines only. Most labels came from an AI labeller following the written codebook. Only the NYT and the Guardian run past 2021. About 1 subject in 3 is wrong (the conclusions also hold with the outlets' own tags). The paper's references were compiled from memory and are still being checked.
+One reader's scale. Headlines only. Most labels came from an AI labeller following the written codebook. Only the NYT and the Guardian run past 2021. About 1 subject in 3 is wrong (the conclusions also hold with the outlets' own tags). The report's references were compiled from memory and are still being checked.
 
 ## Data sources and licence
 
