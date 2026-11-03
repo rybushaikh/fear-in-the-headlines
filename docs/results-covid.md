@@ -1,4 +1,5 @@
 # RESULTS: fear in the news before, during and after COVID (27 Oct 2026)
+> **Superseded for the NYT (3 Nov 2026).** A data audit corrected the NYT news base. NYT numbers below use the original base. See section 3.5 of the [final report](final-report.md). Guardian and ABC numbers still stand.
 Plan (frozen before computing): `PLAN-analysis-covid-2026-10-27.md`. Script: `pipeline/analysis_covid.py` → `data/processed/final/analysis_covid.json`. Model: Noesis fear_v7 (v7e) + subject head. "Scary" = level 2–3 on the user's scale (U1).
 
 ## In plain words

@@ -1,10 +1,10 @@
 # Fear in the Headlines: Measuring News Fear on a Reader's Own Scale, 2003–2026
 
-Rahheb Shaikh · Updated 3 November 2026 · Final report, project ongoing
+Rahheb Shaikh · Updated 3 November 2026 (results corrected after a data audit, see section 3.5) · Final report, project ongoing
 
 ## Abstract
 
-Did the news become more frightening after COVID-19, and if so, why? We scored 3.35 million headlines from the New York Times (2003–2026), the Guardian (2003–2026) and ABC News Australia (2003–2021) for fear on a 0–3 scale defined by one reader's explicit codebook. A compact sentence model, distilled from a larger teacher trained on about 3,900 labelled headlines, reproduced codebook labels on unseen, scary-enriched sealed test sets with quadratic-weighted κ of .93 (2003–21 news) and .88 (2022–26 news), against κ .93 between two separate AI labelling passes. The share of scary headlines (level 2 or 3) in NYT news rose from 7.1% in 2017–19 to 10.1% in 2024–26 (+3.0 points, 95% CI 2.7 to 3.3); the Guardian rose by the same amount (+3.0, CI 1.9 to 3.9). COVID produced a temporary spike in frightening health coverage that had faded by 2024. A shift-share decomposition attributes about 90% of the lasting NYT rise to agenda (more coverage of war, terrorism and disasters) rather than to framing (how frightening each subject is made to sound). War and disaster coverage rose from about 1 in 8 NYT news headlines to about 1 in 5. Change-point analysis, which is exploratory, dates the last sustained step to July 2019, before COVID, and shows the scary share holding near 10% since February 2024, its highest sustained level in the 24-year series. Opinion pages showed a COVID bump but no lasting rise. We release the method and codebook so the measure can be reused.
+Did the news become more frightening after COVID-19, and if so, why? We scored 3.35 million headlines from the New York Times (2003–2026), the Guardian (2003–2026) and ABC News Australia (2003–2021) for fear on a 0–3 scale defined by one reader's explicit codebook, which centres on danger to life and safety. A compact sentence model, distilled from a larger teacher trained on about 3,900 labelled headlines, reproduced codebook labels on unseen, scary-enriched sealed test sets with quadratic-weighted κ of .93 (2003–21 news) and .88 (2022–26 news), against κ .93 between two separate AI labelling passes. A post hoc data audit found that the NYT "news" base contained blog posts, same-day repeats and sections that closed or are not news, and this report's main results now use a corrected base. On it, the scary share of NYT news rose from 8.2% in 2017–19 to 10.7% in 2024–26 (+2.4 points, 95% CI 2.1 to 2.7); the Guardian rose 3.0 points (CI 1.9 to 3.9). War and disaster coverage rose from about 1 in 7 NYT news headlines to about 1 in 5, and about 93% of the rise since 2017 is agenda rather than framing. COVID produced a temporary spike in frightening health coverage that had faded by 2024. The rise is not a one-way climb: war and disaster were already 18% of NYT headlines in 2003–06, and scary coverage moves in waves. The rise is also sensitive to how news is defined: it is +1.0 point in print-only headlines and +1.5 without the NYT's quick-news and weather desks. All audit-based results are exploratory. We release the method, codebook and corrections so the measure can be reused.
 
 ## 1 Introduction
 
@@ -65,6 +65,30 @@ NYT and Guardian articles were deduplicated by article ID; Guardian random-day i
 - ABC ends in 2021, so post-COVID claims rest on the NYT and the Guardian.
 - The NYT Archive API returned only about 700 articles for January 2026, against about 4,000 in a typical month, and 2026 runs to October.
 - In 2025 the NYT changed its document-type label from "article" to "Article"; all filters are case-insensitive.
+
+### 3.5 Data audit and corrected NYT base
+
+An earlier version of this report used every NYT item typed "News". A reader's question about why 2008 looked so calm exposed the flaw: the scale barely counts financial panic, and about half of 2008's "news" items were blog-site posts, which are rarely scary. We then froze an audit plan (`docs/plans/data-audit.md`) and profiled the archive year by year. Fixes are post hoc, so everything that depends on them is exploratory.
+
+**Corrected base.** From 1,282,901 NYT news headlines we removed 256,274 from outside www.nytimes.com (blogs and DealBook: 49% of 2008, 56% of 2012, near zero from 2017), 30,264 same-day repeats (26% of 2006) and 140,113 from Sports, Games, the Learning Network and Society, which closed or are not news. That leaves 856,250.
+
+| Audit check | Finding | Effect on the 2017–19 to 2024–26 rise | Action |
+|---|---|---|---|
+| Blog sites and DealBook | Large in 2006–15, near zero after 2017 | None; it reshaped 2006–16 and the turning points | Removed |
+| Same-day repeats | 26% of 2006, under 2% elsewhere | None | Removed |
+| Sports desk closed in 2023 | 8.4 calm headlines a day fell to almost none | −0.56 points | Removed |
+| Games, Learning, Society | Calm sections that grew or closed | +0.28, +0.07 and −0.22 points | Removed |
+| Express (quick-news) desk and new Weather desk | Express began about 2017; Weather about 2023 | −1.0 point if excluded | Kept; reported |
+| Print vs web | The rise is smaller in print | −1.4 points in print only | Kept; reported |
+| Headlines became longer | NYT 7.3 words (2007–09) to 9.9; longer headlines score scarier | −0.5 points; large for long-run comparisons | Reported |
+| Automated earthquake, map and tracker pages | Under 0.1% of headlines | None | No action |
+| Wire-service bylines | At most 0.2% | None | No action |
+| Gaps | Only Jan 2026 (7 days) and Oct 2026 (4 days) | None | No action |
+| Seasonality | Same result on Jan–Sep only | None | No action |
+| Scoring | No missing scores; rescored samples match to rounding | None | No action |
+| NYT tags | Coverage steady at 81–88% | None | No action |
+| Guardian | About 12 random days a year (9 in 2021 and 2026); sport share steady at 15–17% | None found, but the sample is thin | No action |
+| ABC | Programme-type items at most about 3% | None | No action |
 
 ## 4 Measuring fear
 
@@ -139,107 +163,130 @@ Sealed items were drawn from keyword-matched and non-keyword headlines, so rewei
 | Sealed #4 (2003–21) | 3.0% | 5.5% | 96% | 51% |
 | Sealed #5 (2022–26) | 9.3% (95% CI 4.9 to 14.5) | 10.2% | 60% | 55% |
 
-The model's overall share is close to the labels for recent news and too high for older news. So overall shares are usable, but on ordinary news only about half of individually flagged headlines are truly scary. These estimates are rough, because few non-keyword items were scary (5 in sealed #5).
+The model's overall share is close to the labels for recent news and too high for older news. So overall shares are usable, but on ordinary news only about half of individually flagged headlines are truly scary. These estimates are rough, because few non-keyword items were scary (5 in sealed #5). They were not recomputed on the corrected base: 42 of the 300 items in sealed #4 came from blog sites and 10 from removed sections, while sealed #5 had no blog items and 7 from removed sections, so the older estimate may not describe the corrected base.
 
 ## 6 Results
 
-All analyses follow a plan frozen before any number was computed. Periods are fixed: pre-COVID 2017–19, COVID 2020–21, after 2022–23, recent 2024–26. Intervals are 95% day-clustered bootstrap intervals (1,000 resamples).
+Periods and methods follow a plan frozen before any number was computed: pre-COVID 2017–19, COVID 2020–21, after 2022–23, recent 2024–26, with 95% day-clustered bootstrap intervals (1,000 resamples). The corrected NYT base (section 3.5) was added after results were seen, so NYT results here are exploratory. Guardian and ABC results are unchanged.
 
 ### 6.1 Trends over time (RQ1)
 
 ![Figure 1. Share of scary headlines by year and outlet](figures/figure1-scary-share-by-year.png)
 
-At the NYT the rise begins in 2019 and continues steadily through COVID, then levels off at about 10% from 2023. The Guardian jumps in 2020 and settles about 3 points above its pre-COVID level. ABC, whose data end in 2021, rises from 2017 onward. Each outlet has its own baseline, so changes, not levels, are compared.
+The NYT moves in waves: about 8–9% in 2003–07, about 7–8% in 2008–10, about 9–10% in 2011–15, about 8% in 2016–18, and about 10–11% since 2021. The Guardian jumps in 2020 and settles about 3 points above its pre-COVID level. ABC, whose data end in 2021, rises from 2017 onward. Each outlet has its own baseline, so changes, not levels, are compared.
 
-A daily view shows why this can feel constant. In 2024–26, NYT news carried at least one scary headline on 100% of the 984 days with data, averaging 9.8 a day (median 9), up from 7.4 a day in 2017–19 (99.8% of days). About 90% of its news headlines were still not scary. This daily view was computed after the frozen plan and is descriptive only.
+A daily view shows why this can feel constant. In 2024–26, NYT news carried at least one scary headline on 100% of the 984 days with data, averaging 9.8 a day (median 9), up from 7.2 a day in 2017–19. About 89% of its news headlines were still not scary. This daily view is descriptive only.
 
 ### 6.2 Before, during and after COVID
 
 | Sample | Pre-COVID 2017–19 | COVID 2020–21 | After 2022–23 | Recent 2024–26 | Recent minus pre (95% CI) |
 | --- | --- | --- | --- | --- | --- |
-| NYT news, scary (2–3) | 7.1% | 8.7% | 9.9% | 10.1% | +3.0 (2.7 to 3.3) |
-| NYT news, alarm (3) | 1.6% | 1.5% | 2.0% | 2.1% | +0.5 (0.4 to 0.6) |
+| NYT news, scary (2–3) | 8.2% | 9.7% | 10.9% | 10.7% | +2.4 (2.1 to 2.7) |
+| NYT news, alarm (3) | 1.9% | 1.7% | 2.2% | 2.3% | +0.4 (0.2 to 0.5) |
 | Guardian, scary (2–3) | 5.9% | 10.3% | 8.7% | 8.9% | +3.0 (1.9 to 3.9) |
 | Guardian, alarm (3) | 1.0% | 1.3% | 1.4% | 1.5% | +0.5 (0.2 to 0.9) |
-| NYT opinion, scary (2–3) | 2.1% | 2.9% | 2.5% | 1.9% | −0.2 (−0.6 to 0.1) |
+| NYT opinion, scary (2–3) | 2.1% | 2.9% | 2.5% | 1.9% | −0.2 (−0.5 to 0.1) |
 
-News became scarier and stayed scarier at both outlets. Opinion headlines rose during COVID (+0.8 points, CI 0.4 to 1.2) and then returned to baseline.
+News became scarier and stayed scarier at both outlets. Opinion headlines rose during COVID and then returned to baseline.
 
 ### 6.3 Subjects (RQ2)
 
 | Subject, NYT news | Share of headlines 2017–19 | 2020–21 | 2022–23 | 2024–26 | Scary within subject 2017–19 | 2024–26 |
 | --- | --- | --- | --- | --- | --- | --- |
-| War / terror | 7.6% | 6.1% | 12.0% | 12.0% | 31% | 32% |
-| Disaster / accident | 4.3% | 4.7% | 5.9% | 7.0% | 45% | 49% |
-| Crime / justice | 8.1% | 7.3% | 8.6% | 8.7% | 26% | 23% |
-| Health | 6.0% | 16.0% | 7.4% | 5.7% | 6% | 8% |
-| Politics | 15.1% | 14.3% | 12.2% | 17.9% | 1% | 1% |
-| Economy | 9.0% | 8.3% | 9.1% | 8.6% | 1% | 1% |
-| Culture / lifestyle | 26.5% | 21.4% | 22.4% | 22.6% | 0% | 0% |
-| Sport | 11.3% | 9.7% | 9.6% | 4.8% | 0% | 0% |
+| War / terror | 8.8% | 6.7% | 13.2% | 12.7% | 31% | 32% |
+| Disaster / accident | 4.9% | 5.1% | 6.4% | 7.2% | 46% | 50% |
+| Crime / justice | 9.2% | 8.0% | 9.4% | 9.2% | 26% | 23% |
+| Health | 6.4% | 17.1% | 7.6% | 5.6% | 6% | 8% |
+| Politics | 17.0% | 15.8% | 13.4% | 18.9% | 1% | 1% |
+| Economy | 10.2% | 9.1% | 9.8% | 8.8% | 1% | 1% |
+| Culture / lifestyle | 27.0% | 22.1% | 23.1% | 20.7% | 0% | 0% |
 
-Four subjects carry almost all frightening headlines: disaster/accident (about half of its headlines are scary), war/terror and crime/justice (about a quarter to a third each), and health during COVID (15% scary in 2020–21). War/terror coverage rose from 7.6% to 12.0% of NYT news after 2022, and disaster coverage from 4.3% to 7.0%. Health returned to its pre-COVID share and tone by 2024–26. The Guardian shows the same pattern: war/terror rose from 5.6% to 9.9% of headlines and disasters from 3.0% to 3.8%.
+Four subjects carry almost all frightening headlines: disaster/accident (about half of its headlines are scary), war/terror and crime/justice (about a quarter to a third each), and health during COVID (16% scary in 2020–21). War and disaster together rose from 13.7% to 19.9% of NYT news, or 12 to 18 headlines a day. By the outlet's own tags the rise is steeper, from 10.3% to 21.3%. They produced 72% of scary headlines in 2024–26, up from 60%. Health returned to its pre-COVID share by 2024–26. The Guardian shows the same pattern: war/terror rose from 5.6% to 9.9% of headlines and disasters from 3.0% to 3.8%.
+
+![War and disaster share of NYT news headlines by year](figures/figure7-war-disaster-share.png)
 
 ### 6.4 Agenda or framing? (RQ3)
 
 ![Figure 2. What drove the rise in scary NYT headlines](figures/figure2-nyt-rise-bridge.png)
 
-A shift-share decomposition splits the change in the scary share into agenda (subject shares change, scariness held at pre-COVID levels), framing (scariness within subjects changes, shares held) and their interaction. For NYT news the +2.97-point rise splits into agenda +2.73, framing +0.13 and interaction +0.11, so about 92% is agenda. For the Guardian the +2.95-point rise splits into agenda +1.96, framing +0.77 and interaction +0.22, so about two-thirds is agenda. For NYT opinion the total change is −0.22 points, with no meaningful component.
+A shift-share decomposition splits the change in the scary share into agenda (subject shares change, scariness held at pre-COVID levels), framing (scariness within subjects changes, shares held) and their interaction. For NYT news the +2.41-point rise splits into agenda +2.25, framing +0.08 and interaction +0.08, so about 93% is agenda. For the Guardian the +2.95-point rise splits into agenda +1.96, framing +0.77 and interaction +0.22, so about two-thirds is agenda. For NYT opinion the total change is about −0.2 points, with no meaningful component.
 
-### 6.5 Long view (ABC, 2003–2021)
+### 6.5 Long view
 
-ABC's scary share was 12–14% from 2003 to 2009, fell to about 10.5% in 2012–14, and then climbed to 14.0% in 2019, 16.0% in 2020 and 18.0% in 2021. The post-2014 rise at ABC began well before COVID, consistent with the NYT's pre-pandemic upturn.
+ABC's scary share was 12–14% from 2003 to 2009, fell to about 10.5% in 2012–14, and then climbed to 14.0% in 2019, 16.0% in 2020 and 18.0% in 2021.
+
+Long-run comparisons need care, because headlines got longer and longer headlines score scarier. The table shows each share as measured and with headline length held at each outlet's 2017–19 mix.
+
+| Outlet | Period | Words per headline | Scary share | Length held fixed |
+|---|---|---|---|---|
+| NYT | 2003–06 | 7.8 | 8.4% | 10.6% |
+| NYT | 2007–09 | 7.3 | 7.5% | 9.4% |
+| NYT | 2017–19 | 9.6 | 8.2% | 8.2% |
+| NYT | 2024–26 | 9.9 | 10.7% | 10.2% |
+| Guardian | 2003–06 | 5.7 | 3.8% | 6.0% |
+| Guardian | 2017–19 | 10.7 | 5.9% | 5.9% |
+| Guardian | 2024–26 | 12.8 | 8.9% | 8.3% |
+| ABC | 2003–06 | 6.3 | 12.2% | 12.3% |
+| ABC | 2021 | 7.9 | 18.0% | 18.0% |
+
+At the NYT, today's level is the highest as measured, but not once length is held fixed. War and disaster were 18.4% of NYT headlines in 2003–06 and 19.9% in 2024–26. So we do not claim a 24-year high at the NYT. The Guardian and ABC are higher than their early years on both measures.
 
 ### 6.6 Robustness
 
-| Check | NYT news, pre → recent | Guardian, pre → recent |
-| --- | --- | --- |
-| Main analysis (scary share) | 7.1% → 10.1% | 5.9% → 8.9% |
-| Mean fear score instead of share | 0.32 → 0.42 | 0.31 → 0.41 |
-| Including generic repeated headlines | 6.9% → 9.8% | 5.9% → 8.8% |
-| Confident subjects only (conf ≥ 0.6) | 11.6% → 17.8% | 7.6% → 12.0% |
-| Outlet's own tags as subject: total change, agenda part | +3.4 points; agenda +4.8 | +5.4 points; agenda +1.0\* |
+| NYT news base | 2017–19 | 2024–26 | Rise (95% CI) |
+|---|---|---|---|
+| Original base (earlier report) | 7.1% | 10.1% | +3.0 (2.7 to 3.3) |
+| Without blogs and DealBook | 7.1% | 10.1% | +3.0 (2.7 to 3.3) |
+| **Corrected base (main)** | **8.2%** | **10.7%** | **+2.4 (2.1 to 2.7)** |
+| Corrected, length held fixed | 8.2% | 10.2% | +2.0 |
+| Corrected, no Express or Weather desks | 7.8% | 9.2% | +1.5 (1.1 to 1.8) |
+| Corrected, print-only articles | 8.2% | 9.2% | +1.0 (0.6 to 1.4) |
+| Same print articles, rescored on print headlines (25,000 a period) | 7.8% | 8.8% | +1.0 |
+| Corrected, no politics desks | 8.7% | 11.9% | +3.3 (2.9 to 3.7) |
 
-Every check points the same way. \*Guardian tags are complete only for the threat-tag design, so this check is weaker there; its large interaction term (+4.1) reflects that design.
+The direction holds in every version, but the size ranges from about 1 to 3 points. War and disaster's rise is steadier: 14.1% to 18.6% in print and 13.6% to 18.9% without Express and Weather. The Guardian's original checks are in `docs/results-covid.md`.
 
 ### 6.7 Key transitions (exploratory)
 
-This analysis was planned after the main results were seen, so it is exploratory. A change-point search on monthly NYT news shares found these periods:
+The original change-point method was rerun on monthly shares of the corrected base.
 
 ![Scary NYT headlines by month, with detected periods](figures/figure6-transitions.png)
 
-| Period | Scary share | What marks it |
+| Period | Scary share | War and disaster share |
 |---|---|---|
-| Sep 2007 – Oct 2009 | 3.5% | The low. Economy news is 20% of headlines and war only 5.5% |
-| Dec 2010 – May 2011 | 7.9% | A brief spike that fell back to 4.8% within months |
-| Mar 2014 – Jun 2019 | 6.7% | A step up, with disaster headlines getting scarier (29% to 42% scary) |
-| Jul 2019 – Jul 2023 | 8.8% | A step up about eight months before COVID, including its health surge |
-| Aug 2023 – Jan 2024 | 11.8% | The peak: Maui and Gaza. October 2023 is the scariest month at 15.0% |
-| Feb 2024 – Oct 2026 | 10.1% | The plateau, now 33 months long |
+| Jan 2003 – Jun 2005 | 7.8% | 18.0% |
+| Jul 2005 – Aug 2007 | 9.1% | 18.8% |
+| Sep 2007 – Jan 2011 | 7.3% | 15.3% |
+| Feb 2011 – Jan 2016 | 9.6% | 17.3% |
+| Feb 2016 – Feb 2021 | 8.4% | 12.7% |
+| Mar 2021 – Oct 2026 | 10.7% | 18.8% |
 
-The biggest change in coverage is war and disaster together: 11.9% of NYT news headlines in 2017–19 and 19.0% in 2024–26, or 12 a day rising to 18. By the outlets' own tags the rise is steeper, from 8.8% to 20.5%. These two subjects produced 72% of scary headlines in 2024–26, up from 60%.
+Dates depend on the base, so we rely only on what repeats. The rise in February 2011 and the fall in early 2016 appear in the corrected, print-only and blog-free bases. The latest step does not have a stable date: March 2021 here, December 2019 in print only, and July 2019 in the blog-free base. So the data do not establish whether it began before COVID. The earlier report's "brief 2011 spike", "March 2014 step" and "July 2019 step, before COVID" were affected by the base and are withdrawn. The scariest months are August 2021 (16.2%; Kabul and wildfires) and October 2023 (15.6%; Gaza). Their order swaps across bases.
+
+The 2007–11 low was far deeper in the earlier report (3.5%) because of blogs. Much of what remains may reflect the scale: of 938 NYT headlines with crash-related words from 14 September to 31 October 2008, 96% scored 0 or 1, because financial fear is largely outside this scale. These data don't show that 2008 was a calm year.
 
 ### 6.8 Checks on the rise (exploratory)
 
-- **Is it just fewer calm headlines?** Mostly not since 2017. Scary headlines rose from 7.4 to 9.8 a day (+33%) while calm ones fell about 8%, so about three-quarters of the rise is more scary headlines. Without sport, whose coverage shrank when the NYT closed its sports desk, the share still rises from 8.0% to 10.6%.
-- **Over the long run, partly yes.** From 2007–09 to 2024–26, calm headlines halved (188 to 86 a day) while scary ones rose about 20%, so most of that rise reflects fewer calm headlines. Earlier archive years may also count different items, so these long comparisons are less reliable.
-- **Does it depend on the model?** Blind labels alone, across all NYT article types, also show a rise, from 4.2% (2017–19, CI 2.5 to 7.3) to 11.0% (2024–26, CI 5.5 to 18.1): +6.7 points, CI 0.3 to 14.4. The direction agrees with the model, but the size is very uncertain. Labelling rules were refined between pools, which could affect this comparison.
-- **Is tone really flat?** Since 2017, yes: framing adds +0.13 of the 2.97-point rise. Over longer spans it matters more. From 2003–06 to 2024–26, framing explains about 44% of the rise, and disaster headlines went from 36% to 49% scary.
-- **Could the shared encoder bias subjects?** Partly. The fear and subject heads use one encoder, and model subjects match outlet tags more often for scary headlines. But the agenda result is stronger, not weaker, when using the tags alone.
+- **Is it just fewer calm headlines?** No. On the corrected base, scary headlines rose from 7.2 to 9.8 a day (+35%) and calm ones were about flat (80.6 to 82.3).
+- **Where do the extra scary headlines come from?** About 2.5 more a day on the blog-free base. Nearly half come from the Express quick-news desk (0.7 to 1.6 a day) and a new Weather desk (0 to 0.3), and about 30% from Foreign (3.6 to 4.3). National was flat and Metro fell slightly. Desks can be reorganised, so some of this may be stories moving between desks rather than new coverage.
+- **Print vs web.** In print-only articles the share rose 1.0 point and scary headlines fell slightly per day (5.6 to 5.2), as the paper published less. Much of the rise is in web-only reporting. The print flag may be incomplete for recent months.
+- **Does it depend on the model?** Blind labels alone, across all NYT article types, also show a rise, from 4.2% (2017–19, CI 2.5 to 7.3) to 11.0% (2024–26, CI 5.5 to 18.1): +6.7 points, CI 0.3 to 14.4. The direction agrees with the model, but the size is very uncertain. Labelling rules were refined between pools, which could affect this comparison, and this check was not rerun on the corrected base.
+- **Is tone really flat?** Since 2017, yes: framing adds +0.08 of the 2.41-point rise. From 2003–06 to 2024–26 framing appears larger (+1.40 of 2.26 points), but headline length changed over that span, so tone and style can't be separated.
+- **Could the shared encoder bias subjects?** Partly. The fear and subject heads use one encoder, and model subjects match outlet tags more often for scary headlines. But the rise in war and disaster is stronger, not weaker, using the tags alone.
 
 ## 7 Discussion
 
 ### 7.1 What changed, and what did not
 
-The share of scary headlines rose by about 3 points (a 40% relative rise at the NYT) and has stayed up since the pandemic ended. Since 2017 the tone of coverage within subjects has barely moved: a war or disaster headline was about as frightening in 2024–26 as in 2017–19. What changed is the mix, with war and disaster rising from about 1 in 8 NYT news headlines to about 1 in 5. Over longer spans tone matters more, especially for disasters (section 6.8).
+Since 2017–19 the share of scary NYT headlines rose by about 2.4 points, and has stayed up since the pandemic ended. Tone within subjects has barely moved in that time. What changed is the mix: war and disaster rose from about 1 in 7 NYT news headlines to about 1 in 5.
 
-These data measure coverage, not events. They can't say whether the world became more dangerous, whether newsrooms gave danger more attention, or both. That is the most important open question this work leaves.
+That rise needs context in two ways. First, it starts from a low. War and disaster were about 18% of NYT headlines in 2003–06, during the Iraq war, and about 13% in 2016–21. The pattern is closer to waves than to a steady climb. Second, part of it is how the NYT publishes: a quick-news desk and a weather desk carry nearly half of the extra scary headlines, and print headlines show a smaller rise.
 
-Earlier spikes faded: the 2011 spike fell back within months. The current plateau has lasted 33 months, which suggests a new baseline rather than a passing event, although a new shock or a run of quieter events could still move it.
+These data measure coverage, not events. They can't say whether the world became more dangerous, whether newsrooms gave danger more attention, or both. That remains the most important open question.
 
 ### 7.2 COVID as a spike, not a shift
 
-COVID-19 raised fear through one subject, health, which both took more space and became more alarming. Both effects reversed by 2024. The last sustained step came in July 2019, before the pandemic, and the lasting rise is carried by other subjects. Accounts that blame a post-COVID "anxiety culture" in the press are not supported by these headlines.
+COVID-19 raised fear through one subject, health, which both took more space and became more alarming. Both effects reversed by 2024, and the lasting rise is carried by war and disaster, which were at their lowest during COVID. Whether the upturn began just before the pandemic can't be settled, because its date depends on the base (section 6.7). Accounts that blame a post-COVID "anxiety culture" in the press are not supported by these headlines.
 
 ### 7.3 News versus opinion
 
@@ -259,7 +306,10 @@ A scale written from one reader's judgement makes the measure explicit and testa
 - **Coverage is not reality.** These data can't separate changes in world events from changes in newsroom attention.
 - **Individual headlines.** On ordinary news, only about half of headlines the model flags as scary are truly scary. Results are meant for aggregate use.
 - **Subject error.** About one subject in three is wrong. The main conclusion holds with the outlets' own tags, but finer subject comparisons should be read with care.
-- **Collection artefacts.** January 2026 is under-collected at the NYT, 2026 is partial, and the NYT's 2023 closure of its sports desk shrinks sport's share for reasons unrelated to fear.
+- **Scope of fear.** The scale centres on danger to life and safety. Financial panic, such as the 2008 crash, barely registers, so "scary" here does not mean everything people fear.
+- **Post hoc corrections.** The corrected base was chosen after results were seen, and other reasonable bases give a rise of about 1 to 3 points. Model training and sealed tests used the original pools.
+- **Changing formats.** Longer headlines, web-first publishing and desk reorganisations all affect these measures, and long-run comparisons are the most exposed. Placement and readership were not audited.
+- **Collection artefacts.** January and October 2026 are under-collected at the NYT, 2026 is partial, and the Guardian sample covers only about 12 days a year.
 
 ## 9 Ethics, data and code availability
 
@@ -270,7 +320,7 @@ A scale written from one reader's judgement makes the measure explicit and testa
 
 ## 10 Conclusion
 
-Across 3.35 million headlines, scary news rose by about 3 points of all headlines after 2019 at both the NYT and the Guardian, and it has not come down. COVID-19 drove a temporary spike in frightening health news, but the lasting rise comes from what is covered (more war and disaster) rather than from how it is told. War and disaster went from about 1 in 8 NYT news headlines to about 1 in 5, and the scary share has held near 10% for 33 months, its highest sustained level in 24 years of data. Whether that reflects a more dangerous world or more attention to danger is the next question. A compact offline model trained on an explicit fear scale can track this in aggregate, which could let readers monitor the fear in their own news diet.
+Across 3.35 million headlines, scary news rose after 2017–19 at both the NYT (+2.4 points) and the Guardian (+3.0), and it has not come down. COVID-19 drove a temporary spike in frightening health news, while the lasting rise comes from what is covered: war and disaster went from about 1 in 7 NYT news headlines to about 1 in 5. This is a wave rather than a one-way climb, returning to a level last seen during the Iraq war years, and it is sensitive to publishing format, with a smaller rise in print. Whether it reflects a more dangerous world or more attention to danger is the next question. A year-by-year data audit changed several of this project's earlier conclusions, which is the main methodological lesson. A compact offline model trained on an explicit fear scale can track this in aggregate, as long as what counts as news is held constant.
 
 ## References
 
@@ -318,6 +368,6 @@ Data services: The New York Times Archive API; The Guardian Open Platform (Conte
 1. **Collection:** `outlets_fetch.py`, `guardian_targeted.py`, `recent_fetch.py` (APIs, cached and resumable).
 2. **Labels and tests:** `prep_scary_test*.py` (sealed pools), `prep_v7f_data.py`, `build_u1_corpus.py`.
 3. **Models:** `train_v12.py` (teacher), `build_fear_v7e.py` (student), `build_subject.py` and `build_subject_rules.py` (subjects).
-4. **Scoring and analysis:** `score_all_v7e.py` (3.35 million rows), `analysis_covid.py` (frozen plan, 1,000 day-cluster bootstrap resamples, seed 0), `analysis_transitions.py` and `analysis_transitions2.py` (exploratory).
+4. **Scoring and analysis:** `score_all_v7e.py` (3.35 million rows), `analysis_covid.py` (frozen plan, 1,000 day-cluster bootstrap resamples, seed 0), `analysis_transitions.py` and `analysis_transitions2.py` (exploratory, on the original base), and `analysis_corrected.py` (corrected base; main NYT results, exploratory).
 
 The production model runs on CPU with no network access; scoring all 3.35 million headlines took 16 minutes on a laptop.

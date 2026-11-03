@@ -8,14 +8,17 @@
 
 ## What we found
 
-- **War and disaster went from 1 in 8 NYT news headlines to 1 in 5.** That's the biggest shift in the data, and the outlets' own tags show it more strongly.
-- **Fear settled at a new high.** The NYT's scary share has held near 10% for 33 months, its highest sustained level in 24 years of data. The last step up came in July 2019, before COVID (exploratory).
-- **Scary headlines rose and stayed up.** NYT news went from 7.1% (2017–19) to 10.1% (2024–26), +3.0 points (95% CI 2.7 to 3.3). The Guardian also rose 3.0 points, from 5.9% to 8.9% (CI 1.9 to 3.9).
-- **It really is daily.** In 2024–26, NYT news carried scary headlines on 100% of days with data, about 10 a day, yet about 90% of its headlines weren't scary.
+> **Corrected on 3 November 2026.** A year-by-year data audit found blog posts, repeats and closed sections in the NYT "news" data, and it changed several earlier results. [See what changed](docs/final-report.md#35-data-audit-and-corrected-nyt-base). NYT results use the corrected data and are exploratory.
+
+- **War and disaster went from about 1 in 7 NYT news headlines to about 1 in 5** (13.7% in 2017–19 to 19.9% in 2024–26). That's the biggest shift, and the NYT's own tags show it more strongly (10.3% to 21.3%).
+- **Scary headlines rose and stayed up.** NYT news went from 8.2% to 10.7%, +2.4 points (95% CI 2.1 to 2.7). The Guardian rose 3.0 points, from 5.9% to 8.9% (CI 1.9 to 3.9).
+- **It's a wave, not a straight climb.** War and disaster were already 18% of NYT headlines in 2003–06, so we don't claim a 24-year high at the NYT.
+- **The size depends on what counts as news.** The rise is +1.0 in print only and +1.5 without the NYT's quick-news and weather desks. The direction holds in every version.
+- **It really is daily.** In 2024–26, NYT news carried scary headlines on 100% of days with data, about 10 a day, yet about 89% of its headlines weren't scary.
 - **COVID was a spike.** Health news surged in 2020–21, then returned to normal by 2024.
-- **War and disasters drive the lasting rise.** About 90% of the NYT rise comes from what gets covered, not how it's told. In the Guardian it's about two-thirds.
+- **The rise since 2017 is about what gets covered.** About 93% of the NYT rise is agenda, not tone. In the Guardian it's about two-thirds.
 - **Opinion pages had no lasting rise.**
-- **What this can't tell you:** it measures coverage, not events, so it can't say whether the world got more dangerous or newsrooms paid danger more attention.
+- **What this can't tell you:** it measures coverage, not events, so it can't say whether the world got more dangerous or newsrooms paid danger more attention. "Scary" means danger to life and safety, so a financial panic like 2008 barely registers.
 
 ![What drove the rise in scary NYT headlines](docs/figures/figure2-nyt-rise-bridge.png)
 
@@ -52,7 +55,7 @@ Two separate AI labelling sessions agreed at κ .93, and the model scored κ .81
 | 2. Build labels and sealed tests | `build_u1_corpus`, `make_synthetic`, `prep_scary_test`, `prep_scary_test4`, `prep_scary_test5`, `prep_v7f_data` |
 | 3. Train | `v10_model`, `train_v12` (teacher), `build_fear_v7e` (student), `build_subject`, `build_subject_rules` |
 | 4. Evaluate | `u1_eval`, `eval_scary_sealed4`, `eval_v7f_sealed5` |
-| 5. Score and analyse | `score_all_v7e`, `analysis_covid`, `analysis_transitions`, `analysis_transitions2` |
+| 5. Score and analyse | `score_all_v7e`, `analysis_covid`, `analysis_transitions`, `analysis_transitions2`, `analysis_corrected` |
 
 ## What's not included, and what that means
 
@@ -63,7 +66,7 @@ So you can read the method, inspect the code and check the aggregate results, bu
 
 ## Limits
 
-One reader's scale. Headlines only. Most labels came from an AI labeller following the written codebook. Only the NYT and the Guardian run past 2021. About 1 subject in 3 is wrong (the conclusions also hold with the outlets' own tags). It measures coverage, not world events.
+One reader's scale. Headlines only. Most labels came from an AI labeller following the written codebook. Only the NYT and the Guardian run past 2021. About 1 subject in 3 is wrong (the conclusions also hold with the outlets' own tags). It measures coverage, not world events. NYT results use a corrected base chosen after the first results were seen.
 
 ## Data sources and licence
 
