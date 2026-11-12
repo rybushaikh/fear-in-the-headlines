@@ -4,7 +4,7 @@ Rahheb Shaikh · Updated 3 November 2026 (results corrected after a data audit, 
 
 ## Abstract
 
-Did the news become more frightening after COVID-19, and if so, why? We scored 3.35 million headlines from the New York Times (2003–2026), the Guardian (2003–2026) and ABC News Australia (2003–2021) for fear on a 0–3 scale defined by one reader's explicit codebook, which centres on danger to life and safety. A compact sentence model, distilled from a larger teacher trained on about 3,900 labelled headlines, reproduced codebook labels on unseen, scary-enriched sealed test sets with quadratic-weighted κ of .93 (2003–21 news) and .88 (2022–26 news), against κ .93 between two separate AI labelling passes. A post hoc data audit found that the NYT "news" base contained blog posts, same-day repeats and sections that closed or are not news, and this report's main results now use a corrected base. On it, the scary share of NYT news rose from 8.2% in 2017–19 to 10.7% in 2024–26 (+2.4 points, 95% CI 2.1 to 2.7); the Guardian rose 3.0 points (CI 1.9 to 3.9). War and disaster coverage rose from about 1 in 7 NYT news headlines to about 1 in 5, and about 93% of the rise since 2017 is agenda rather than framing. COVID produced a temporary spike in frightening health coverage that had faded by 2024. The rise is not a one-way climb: war and disaster were already 18% of NYT headlines in 2003–06, and scary coverage moves in waves. The rise is also sensitive to how news is defined: it is +1.0 point in print-only headlines and +1.5 without the NYT's quick-news and weather desks. All audit-based results are exploratory. We release the method, codebook and corrections so the measure can be reused.
+Did the news become more frightening after COVID-19, and if so, why? We scored 3.35 million headlines from the New York Times (2003–2026), the Guardian (2003–2026) and ABC News Australia (2003–2021) for fear on a 0–3 scale defined by one reader's explicit codebook, which centres on danger to life and safety. A compact sentence model, distilled from a larger teacher trained on about 3,900 labelled headlines, reproduced codebook labels on unseen, scary-enriched sealed test sets with quadratic-weighted κ of .93 (2003–21 news) and .88 (2022–26 news), against κ .93 between two separate AI labelling passes. A post hoc data audit found that the NYT "news" base contained blog posts, same-day repeats and sections that closed or are not news, and this report's main results now use a corrected base. On it, the scary share of NYT news rose from 8.2% in 2017–19 to 10.7% in 2024–26 (+2.4 points, 95% CI 2.1 to 2.7); the Guardian rose 3.0 points (CI 1.9 to 3.9). War and disaster coverage rose from about 1 in 7 NYT news headlines to about 1 in 5, and about 93% of the rise since 2017 is agenda rather than framing. COVID produced a temporary spike in frightening health coverage that had faded by 2024. The rise is not a one-way climb: war and disaster were already 18% of NYT headlines in 2003–06, and scary coverage moves in waves. The rise is also sensitive to how news is defined: it is +1.0 point in print-only headlines and +1.5 without the NYT's quick-news and weather desks. A check of money coverage found that only cost-of-living headlines rose once headline length is held fixed. All audit-based results are exploratory. We release the method, codebook and corrections so the measure can be reused.
 
 ## 1 Introduction
 
@@ -274,6 +274,24 @@ The 2007–11 low was far deeper in the earlier report (3.5%) because of blogs. 
 - **Is tone really flat?** Since 2017, yes: framing adds +0.08 of the 2.41-point rise. From 2003–06 to 2024–26 framing appears larger (+1.40 of 2.26 points), but headline length changed over that span, so tone and style can't be separated.
 - **Could the shared encoder bias subjects?** Partly. The fear and subject heads use one encoder, and model subjects match outlet tags more often for scary headlines. But the rise in war and disaster is stronger, not weaker, using the tags alone.
 
+### 6.9 Everyday life and money (exploratory)
+
+The fear scale centres on danger, so a separate check asked whether money worries got more coverage. On 99 on-topic economic headlines rated by an AI labeller, the fear model flagged only 2 of 22 judged anxious, so it can't answer this.
+
+- **A money score failed.** A second scale (0–3, worry about ordinary people's money or livelihood) was written, the reader rated 200 headlines, and a small head on the same encoder was trained on those plus about 1,150 AI labels. Pre-set bars were 60% recall, 60% precision and κ .60 on a sealed set. On the reader's sealed 60 it reached recall .54, precision .70 and κ .57. A retest on a fresh 70 (rated by the AI labeller, as the reader could not rate more) reached recall .60, precision .33 and κ .59. Both failed, so it is not used.
+- **Keyword measure instead.** Fixed filters for market falls, job losses (layoffs, unemployment, recession, bankruptcy, foreclosure, eviction) and rising costs (inflation, prices rising, rent) were frozen beforehand. They catch most anxious money headlines but only about a third of their hits are anxious, so they measure money-worry coverage, not anxious headlines.
+- **Pre-set comparison.** Comparing 2003–07 with 2022–26 (12-month block bootstrap), the money share rose in NYT news (+0.38 points, CI +0.08 to +0.66) and the Guardian (+1.18, CI +0.84 to +1.45), as did money-or-scary.
+- **But headline length explains most of it.** NYT news headlines grew from about 7 to 10 words and Guardian headlines from about 5.5 to 11 over that span, and longer headlines match more keywords. With 2022–26 reweighted to the earlier length mix:
+
+| % of headlines | NYT 2003–07 | NYT 2022–26, length-matched | Guardian 2003–07 | Guardian 2022–26, length-matched |
+| --- | --- | --- | --- | --- |
+| Any money keyword | 0.96 | 1.21 | 0.56 | 0.57 |
+| Rising costs | 0.42 | 0.81 | 0.28 | 0.45 |
+| Job losses | 0.37 | 0.28 | 0.20 | 0.09 |
+| Market falls | 0.17 | 0.14 | 0.08 | 0.04 |
+
+Only cost-of-living coverage rose in both outlets, roughly doubling at the NYT. It peaked in 2022 and has eased since. Job-loss and market-fall coverage did not rise. So on money, everyday-life news got scarier mainly through prices. The main danger result (2017–19 to 2024–26) is not affected: headline length barely changed over that window, and the rise holds when length is matched (NYT 8.2% to 10.2%, Guardian 5.9% to 8.5%).
+
 ## 7 Discussion
 
 ### 7.1 What changed, and what did not
@@ -306,7 +324,7 @@ A scale written from one reader's judgement makes the measure explicit and testa
 - **Coverage is not reality.** These data can't separate changes in world events from changes in newsroom attention.
 - **Individual headlines.** On ordinary news, only about half of headlines the model flags as scary are truly scary. Results are meant for aggregate use.
 - **Subject error.** About one subject in three is wrong. The main conclusion holds with the outlets' own tags, but finer subject comparisons should be read with care.
-- **Scope of fear.** The scale centres on danger to life and safety. Financial panic, such as the 2008 crash, barely registers, so "scary" here does not mean everything people fear.
+- **Scope of fear.** The scale centres on danger to life and safety. Financial panic, such as the 2008 crash, barely registers, so "scary" here does not mean everything people fear. The money check in section 6.9 uses keywords after a dedicated money score failed its tests, and its labels come from one reader plus one AI labeller.
 - **Post hoc corrections.** The corrected base was chosen after results were seen, and other reasonable bases give a rise of about 1 to 3 points. Removing blog sites also removed some real reporting (such as The Lede and City Room), which may understate 2007–15 somewhat. Model training and sealed tests used the original pools.
 - **Changing formats.** Longer headlines, web-first publishing and desk reorganisations all affect these measures, and long-run comparisons are the most exposed. Placement and readership were not audited.
 - **Collection artefacts.** January and October 2026 are under-collected at the NYT, 2026 is partial, and the Guardian sample covers only about 12 days a year.
@@ -320,7 +338,14 @@ A scale written from one reader's judgement makes the measure explicit and testa
 
 ## 10 Conclusion
 
-Across 3.35 million headlines, scary news rose after 2017–19 at both the NYT (+2.4 points) and the Guardian (+3.0), and it has not come down. COVID-19 drove a temporary spike in frightening health news, while the lasting rise comes from what is covered: war and disaster went from about 1 in 7 NYT news headlines to about 1 in 5. This is a wave rather than a one-way climb, returning to a level last seen during the Iraq war years, and it is sensitive to publishing format, with a smaller rise in print. Whether it reflects a more dangerous world or more attention to danger is the next question. A year-by-year data audit changed several of this project's earlier conclusions, which is the main methodological lesson. A compact offline model trained on an explicit fear scale can track this in aggregate, as long as what counts as news is held constant.
+Across 3.35 million headlines, scary news rose after 2017–19 at both the NYT (+2.4 points) and the Guardian (+3.0), and it has not come down. COVID-19 drove a temporary spike in frightening health news, while the lasting rise comes from what is covered: war and disaster went from about 1 in 7 NYT news headlines to about 1 in 5. This is a wave rather than a one-way climb, returning, as measured, to a level last seen during the Iraq war years (though not once headline length is held fixed), and it is sensitive to publishing format, with a smaller rise in print. Whether it reflects a more dangerous world or more attention to danger is the next question. A year-by-year data audit changed several of this project's earlier conclusions, which is the main methodological lesson. A compact offline model trained on an explicit fear scale can track this in aggregate, as long as what counts as news is held constant. On money, only cost-of-living coverage rose once headline length is held fixed; job-loss and market-crash coverage did not.
+
+### 10.1 What's next
+
+- **Events versus coverage.** Compare the danger and cost-of-living shares with measured events (conflict counts, inflation, unemployment) to see how far coverage tracks the world.
+- **Mood.** Compare coverage with survey measures such as consumer sentiment, to ask whether people felt what the headlines showed.
+- **A working money score.** More of the reader's own ratings, so the money scale can pass a sealed test.
+- **Wider outlets.** Non-English and non-centre-left sources, television and social platforms.
 
 ## References
 
