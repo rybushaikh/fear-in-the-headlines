@@ -8,4 +8,4 @@ scipy==1.18.1
 sentence-transformers==6.2.0
 spacy==3.8.18
 torch==2.15.0
-transformers==5.22.1
+transformers==5.23.0
